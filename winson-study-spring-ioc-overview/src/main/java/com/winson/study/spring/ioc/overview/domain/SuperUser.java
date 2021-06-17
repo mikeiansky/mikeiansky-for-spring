@@ -1,9 +1,12 @@
 package com.winson.study.spring.ioc.overview.domain;
 
+import com.winson.study.spring.ioc.overview.annotation.Super;
+
 /**
  * @author winson
  * @date 2021/6/17
  **/
+@Super
 public class SuperUser extends User{
 
     private String address;
