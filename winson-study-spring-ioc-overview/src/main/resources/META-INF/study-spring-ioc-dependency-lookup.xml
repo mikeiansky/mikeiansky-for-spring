@@ -8,6 +8,10 @@
         <property name="age" value="29"/>
     </bean>
 
+    <bean id="superUser" class="com.winson.study.spring.ioc.overview.domain.SuperUser" primary="true" parent="user">
+        <property name="address" value="深圳"/>
+    </bean>
+
     <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="user"/>
     </bean>
