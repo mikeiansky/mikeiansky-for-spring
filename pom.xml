@@ -11,6 +11,7 @@
     <modules>
         <module>java-beans-demo</module>
         <module>winson-study-spring-ioc-overview</module>
+        <module>spring-beans</module>
     </modules>
     <build>
         <plugins>
