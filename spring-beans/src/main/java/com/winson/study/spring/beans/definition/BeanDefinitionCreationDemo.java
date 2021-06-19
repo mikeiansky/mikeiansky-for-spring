@@ -1,4 +1,4 @@
-package com.winson.study.spring.beans;
+package com.winson.study.spring.beans.definition;
 
 import com.winson.study.spring.ioc.overview.domain.User;
 import org.springframework.beans.MutablePropertyValues;
