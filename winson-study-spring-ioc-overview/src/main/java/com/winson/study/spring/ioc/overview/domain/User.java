@@ -36,4 +36,11 @@ public class User {
                 '}';
     }
 
+    public static User createUser(){
+        User user = new User();
+        user.setName("winson");
+        user.setAge(26);
+        return user;
+    }
+
 }
