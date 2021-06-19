@@ -12,6 +12,7 @@
         <module>java-beans-demo</module>
         <module>winson-study-spring-ioc-overview</module>
         <module>spring-beans</module>
+        <module>winson-dependency-lookup</module>
     </modules>
     <build>
         <plugins>
