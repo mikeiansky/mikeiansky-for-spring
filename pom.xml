@@ -13,6 +13,7 @@
         <module>winson-study-spring-ioc-overview</module>
         <module>spring-beans</module>
         <module>winson-dependency-lookup</module>
+        <module>winson-dependency-injection</module>
     </modules>
     <build>
         <plugins>
