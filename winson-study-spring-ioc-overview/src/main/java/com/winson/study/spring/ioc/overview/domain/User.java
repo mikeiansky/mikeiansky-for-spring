@@ -8,9 +8,19 @@ import com.winson.study.spring.ioc.overview.annotation.Super;
  **/
 public class User {
 
+    private int id;
+
     private String name;
 
     private int age;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -31,7 +41,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
