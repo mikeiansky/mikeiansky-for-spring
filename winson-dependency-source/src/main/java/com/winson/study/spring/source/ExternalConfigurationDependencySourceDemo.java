@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
  * @date 2021/6/21
  **/
 @Configuration
-@PropertySource(value = "META-INF/default.properties")
+@PropertySource(value = "META-INF/default.properties", encoding = "utf-8")
 public class ExternalConfigurationDependencySourceDemo {
 
     @Value("${usr.id:-1}")
