@@ -15,6 +15,7 @@
         <module>winson-dependency-lookup</module>
         <module>winson-dependency-injection</module>
         <module>winson-dependency-source</module>
+        <module>winson-bean-scope</module>
     </modules>
     <build>
         <plugins>
