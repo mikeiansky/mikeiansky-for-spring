@@ -16,6 +16,7 @@
         <module>winson-dependency-injection</module>
         <module>winson-dependency-source</module>
         <module>winson-bean-scope</module>
+        <module>winson-bean-lifecycle</module>
     </modules>
     <build>
         <plugins>
