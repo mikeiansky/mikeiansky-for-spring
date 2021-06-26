@@ -2,6 +2,7 @@ package com.winson.spring.study.bean.lifecycle;
 
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,6 +19,7 @@ public class BeanInitialLifecycleDemo {
     private static void executeWithBeanFactory() {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         beanFactory.addBeanPostProcessor(new MyInstantiationAwareBeanPostProcessor());
+        beanFactory.addBeanPostProcessor(new CommonAnnotationBeanPostProcessor());
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         String[] resources = {"META-INF/study-spring-ioc-dependency-lookup.xml",
                 "META-INF/bean-constructor-dependency-injection.xml"};

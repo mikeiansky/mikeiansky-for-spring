@@ -2,18 +2,17 @@ package com.winson.spring.study.bean.lifecycle;
 
 import com.winson.study.spring.ioc.overview.domain.User;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author winson
  * @date 2021/6/26
  **/
-public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, EnvironmentAware {
+public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, EnvironmentAware , InitializingBean {
 
     private final User user;
 
@@ -71,4 +70,20 @@ public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFact
     public void setEnvironment(Environment environment) {
         System.out.println("setEnvironment -------> " + environment);
     }
+
+    @PostConstruct
+    public void executePostConstructor(){
+        System.out.println("user holder ---------> executePostConstructor");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("user holder ---------> afterPropertiesSet");
+    }
+
+    public void initMethod(){
+        System.out.println("user holder ---------> initMethod");
+
+    }
+
 }
