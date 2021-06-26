@@ -44,4 +44,14 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
         }
         return pvs;
     }
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+//        System.out.println("postProcessBeforeInitialization beanName : " + beanName + " , bean : " + bean);
+        if(ObjectUtils.nullSafeEquals("userHolder", beanName) && UserHolder.class.equals(bean.getClass())){
+            UserHolder userHolder = (UserHolder) bean;
+            userHolder.setDescription("user holder - v3");
+        }
+        return bean;
+    }
 }
