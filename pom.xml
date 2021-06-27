@@ -17,6 +17,7 @@
         <module>winson-dependency-source</module>
         <module>winson-bean-scope</module>
         <module>winson-bean-lifecycle</module>
+        <module>winson-configuration-metadata</module>
     </modules>
     <build>
         <plugins>
