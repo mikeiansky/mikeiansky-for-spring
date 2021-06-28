@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://spring.winson.com/schema/users"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://spring.winson.com/schema/users">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <xsd:complexType name="User">
+        <xsd:attribute name="id" use="required" type="xsd:long"/>
+        <xsd:attribute name="name" use="required" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:element name="user" type="User"/>
+
+</xsd:schema>
