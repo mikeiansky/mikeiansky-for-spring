@@ -18,6 +18,7 @@
         <module>winson-bean-scope</module>
         <module>winson-bean-lifecycle</module>
         <module>winson-configuration-metadata</module>
+        <module>winson-spring-resource</module>
     </modules>
     <build>
         <plugins>
