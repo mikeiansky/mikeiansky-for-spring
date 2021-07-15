@@ -1,9 +1,11 @@
 package com.winson.study.spring.annotation.demo.scan;
 
+import com.winson.study.spring.annotation.bean.Person;
 import com.winson.study.spring.annotation.config.ScanAllConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  * @author winson
@@ -16,6 +18,9 @@ public class ScanAllDemo {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanAllConfig.class);
         String[] beanNames = context.getBeanDefinitionNames();
         Arrays.stream(beanNames).forEach(System.out::println);
+        System.out.println(System.getProperty("os.name"));
+        Map<String, Person> personMap = context.getBeansOfType(Person.class);
+        System.out.println(personMap);
 
     }
 
