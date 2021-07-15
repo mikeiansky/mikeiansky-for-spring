@@ -19,6 +19,7 @@
         <module>winson-bean-lifecycle</module>
         <module>winson-configuration-metadata</module>
         <module>winson-spring-resource</module>
+        <module>winson-study-spring-annotation</module>
     </modules>
     <build>
         <plugins>
