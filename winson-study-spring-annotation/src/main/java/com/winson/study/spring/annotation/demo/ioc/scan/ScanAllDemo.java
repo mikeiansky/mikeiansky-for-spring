@@ -1,4 +1,4 @@
-package com.winson.study.spring.annotation.demo.scan;
+package com.winson.study.spring.annotation.demo.ioc.scan;
 
 import com.winson.study.spring.annotation.bean.Person;
 import com.winson.study.spring.annotation.config.ScanAllConfig;

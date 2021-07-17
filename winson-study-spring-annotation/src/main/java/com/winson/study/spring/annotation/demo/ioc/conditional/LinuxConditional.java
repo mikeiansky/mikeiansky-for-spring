@@ -1,8 +1,7 @@
-package com.winson.study.spring.annotation.demo.conditional;
+package com.winson.study.spring.annotation.demo.ioc.conditional;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 import java.util.Locale;
@@ -11,12 +10,12 @@ import java.util.Locale;
  * @author winson
  * @date 2021/7/16
  **/
-public class WindowsConditional implements Condition {
-
+public class LinuxConditional implements Condition {
+    
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
         String osName = conditionContext.getEnvironment().getProperty("os.name");
-        return osName.toLowerCase(Locale.ROOT).contains("windows");
+        return osName.toLowerCase(Locale.ROOT).contains("linux");
     }
 
 }

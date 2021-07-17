@@ -1,4 +1,4 @@
-package com.winson.study.spring.annotation.demo;
+package com.winson.study.spring.annotation.demo.ioc;
 
 import com.winson.study.spring.annotation.bean.Person;
 import com.winson.study.spring.annotation.config.MainConfig;

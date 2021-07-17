@@ -1,12 +1,9 @@
-package com.winson.study.spring.annotation.demo.conditional;
+package com.winson.study.spring.annotation.demo.ioc.conditional;
 
-import com.winson.study.spring.annotation.bean.Person;
 import com.winson.study.spring.annotation.config.ColorFactoryBean;
 import com.winson.study.spring.annotation.config.ConditionalConfig;
 import com.winson.study.spring.annotation.utils.ContextUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.Map;
 
 /**
  * @author winson

@@ -1,4 +1,4 @@
-package com.winson.study.spring.annotation.demo.conditional;
+package com.winson.study.spring.annotation.demo.ioc.conditional;
 
 import com.winson.study.spring.annotation.bean.Blue;
 import com.winson.study.spring.annotation.bean.Yellow;
