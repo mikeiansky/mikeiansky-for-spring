@@ -93,7 +93,7 @@ public class AopAspect {
         System.out.println("executionAfter @After aspect run ... ");
     }
 
-    @Before("@annotation(sayHandle)")
+    @Before("@annotation(sayHandle) && bean(helloServiceSub)")
     public void beforeMethodAnnotation(JoinPoint joinPoint, SayHandle sayHandle){
         System.out.println("beforeMethodAnnotation @Before aspect run ... ");
     }
