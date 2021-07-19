@@ -1,6 +1,7 @@
 package com.winson.study.spring.aop.v1.aop;
 
 import com.winson.study.spring.aop.v1.annotation.SayHandle;
+import com.winson.study.spring.aop.v1.bean.Human;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -43,9 +44,19 @@ public class AopAspect {
 
     }
 
-    @Pointcut("target(com.winson.study.spring.aop.v1.service.HelloService)")
+    @Pointcut("target(com.winson.study.spring.aop.v1.service.HelloServiceSub)")
     public void targetPointCut() {
 
+    }
+
+    @Pointcut("args(msg,count)")
+    public void argPointCut(String msg, int count) {
+
+    }
+
+    @Before("this(com.winson.study.spring.aop.v1.service.HelloService)")
+    public void thisBefore(){
+        System.out.println("this before -----> ");
     }
 
     @Before("withSayHandleAnnotation()")
@@ -65,7 +76,7 @@ public class AopAspect {
 
     @Before("targetPointCut()")
     public void targetBefore() {
-        System.out.println("targetBefore @Before run");
+        System.out.println("HelloService targetBefore @Before run");
     }
 
     @Before("withSubPointCut()")
@@ -94,8 +105,24 @@ public class AopAspect {
     }
 
     @Before("@annotation(sayHandle) && bean(helloServiceSub)")
-    public void beforeMethodAnnotation(JoinPoint joinPoint, SayHandle sayHandle){
+    public void beforeMethodAnnotation(JoinPoint joinPoint, SayHandle sayHandle) {
         System.out.println("beforeMethodAnnotation @Before aspect run ... ");
+    }
+
+
+    @Before("argPointCut(msg,count)")
+    public void beforeArg(JoinPoint joinPoint, String msg, int count) {
+        System.out.println("beforeArg ==> argPointCut , msg: " + msg + " , count : " + count);
+    }
+
+//    @Before("args(msg,count)")
+//    public void beforeArg(JoinPoint joinPoint, String msg, int count) {
+//        System.out.println("beforeArg @Before msg:" + msg + " , count : " + count);
+//    }
+
+    @Before("args(human)")
+    public void beforeArgExtend(JoinPoint joinPoint, Human human){
+        System.out.println("Before Arg Extend => " + human);
     }
 
 }
