@@ -21,6 +21,7 @@
         <module>winson-spring-resource</module>
         <module>winson-study-spring-annotation</module>
         <module>winson-study-spring-mvc-v1</module>
+        <module>winson-study-spring-aop-v1</module>
     </modules>
     <build>
         <plugins>
