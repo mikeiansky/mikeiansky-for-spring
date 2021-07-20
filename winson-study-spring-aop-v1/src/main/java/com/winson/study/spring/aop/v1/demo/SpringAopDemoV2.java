@@ -1,4 +1,4 @@
-package com.winson.study.spring.aop.v1;
+package com.winson.study.spring.aop.v1.demo;
 
 import com.winson.study.spring.aop.v1.bean.Human;
 import com.winson.study.spring.aop.v1.bean.Woman;

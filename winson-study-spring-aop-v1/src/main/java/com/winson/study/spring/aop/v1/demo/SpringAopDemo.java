@@ -1,4 +1,4 @@
-package com.winson.study.spring.aop.v1;
+package com.winson.study.spring.aop.v1.demo;
 
 import com.winson.study.spring.aop.v1.bean.Man;
 import com.winson.study.spring.aop.v1.config.AopConfig;

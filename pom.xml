@@ -20,6 +20,7 @@
         <module>winson-configuration-metadata</module>
         <module>winson-spring-resource</module>
         <module>winson-study-spring-annotation</module>
+        <module>winson-study-spring-aop-v1</module>
     </modules>
     <build>
         <plugins>
