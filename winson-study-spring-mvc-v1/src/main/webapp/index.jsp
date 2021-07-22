@@ -12,6 +12,11 @@
 </head>
 <body>
     <p>Hello Winson Jsp</p>
-    <a href="some.do">发起some.do的请求</a>
+    <a href="some.do">发起some.do的请求</a><br/>
+    <form action="param.do" method="post">
+        <input type="text" name="name"><br/>
+        <input type="text" name="age"><br/>
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>
