@@ -9,8 +9,12 @@
 <html>
 <head>
     <title>Title</title>
+    <base href="${pagecontext.request.contextpath}">
 </head>
 <body>
+    <p>123456</p>
+
+    <p>${pagecontext.request.contextpath}</p>
     <h1>show.jsp</h1>
     <a href="show.do">打开 show 页面</a>
     <h3>msg:数据：${msg}</h3>
