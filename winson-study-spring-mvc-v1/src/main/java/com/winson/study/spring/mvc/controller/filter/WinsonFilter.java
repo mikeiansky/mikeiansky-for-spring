@@ -14,11 +14,12 @@ public class WinsonFilter implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Winson Filter do Filter");
+//        System.out.println("Winson Filter do Filter");
         chain.doFilter(request, response);
     }
 
     public void destroy() {
         System.out.println("Winson Filter destroy!");
     }
+
 }

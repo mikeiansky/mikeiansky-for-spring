@@ -12,6 +12,8 @@
 </head>
 <body>
     <h1>show.jsp</h1>
+    <a href="show.do">打开 show 页面</a>
     <h3>msg:数据：${msg}</h3>
+    <img src="static/images/aa/img2.jpg">
 </body>
 </html>

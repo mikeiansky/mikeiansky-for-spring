@@ -12,8 +12,23 @@
 </head>
 <body>
     <p>Hello Winson Jsp</p>
+    <a href="show.do">获取show</a><br/>
     <a href="some.do">发起some.do的请求</a><br/>
     <form action="param.do" method="post">
+        <input type="text" name="name"><br/>
+        <input type="text" name="age"><br/>
+        <input type="submit" value="提交">
+    </form>
+
+    <p> response write 请求</p>
+    <form action="saveInfo.do" method="post">
+        <input type="text" name="name"><br/>
+        <input type="text" name="age"><br/>
+        <input type="submit" value="提交">
+    </form>
+
+    <p> jackson 请求</p>
+    <form action="saveInfo2.do" method="post">
         <input type="text" name="name"><br/>
         <input type="text" name="age"><br/>
         <input type="submit" value="提交">
