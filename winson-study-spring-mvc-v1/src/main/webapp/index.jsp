@@ -17,6 +17,8 @@
     <a href="${pageContext.request.contextPath}/show.do">获取show</a><br/>
     <a href="show.do">发起some.do的请求</a><br/>
     <a href="user/show.do">发起some.do的请求</a><br/>
+    <a href="forward.do">forward.do的请求</a><br/>
+    <a href="redirect.do">redirect.do的请求</a><br/>
 
     <form action="some.do" method="get">
         <input type="text" name="name"><br/>
@@ -37,5 +39,6 @@
         <input type="text" name="age"><br/>
         <input type="submit" value="提交">
     </form>
+
 </body>
 </html>

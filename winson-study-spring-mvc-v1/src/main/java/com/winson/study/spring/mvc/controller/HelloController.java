@@ -2,6 +2,7 @@ package com.winson.study.spring.mvc.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.winson.study.spring.mvc.controller.exception.MyException;
 import com.winson.study.spring.mvc.controller.vo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -90,6 +91,31 @@ public class HelloController {
     public String userShow(HttpServletRequest request){
         System.out.println("request user show");
         return "some";
+    }
+
+    @RequestMapping("/forward")
+    public ModelAndView forward(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("msg", "[haha]");
+        mav.setViewName("forward:/WEB-INF/views/forward.jsp");
+        return mav;
+    }
+
+    @RequestMapping("/redirect")
+    public ModelAndView redirect(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("msg", "[redirect]");
+        mav.setViewName("redirect:/redirect.jsp");
+        return mav;
+    }
+
+    @RequestMapping("/exception")
+    public String exception() throws MyException {
+        ModelAndView mav = new ModelAndView();
+        if(1 ==1 ){
+            throw new MyException("this is my exception");
+        }
+        return "hello";
     }
 
 }
