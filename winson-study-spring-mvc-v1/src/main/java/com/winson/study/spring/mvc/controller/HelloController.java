@@ -2,18 +2,13 @@ package com.winson.study.spring.mvc.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.deploy.net.HttpResponse;
 import com.winson.study.spring.mvc.controller.vo.Student;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -84,10 +79,17 @@ public class HelloController {
         return student;
     }
 
-    @RequestMapping(value = "/show.do" , method = RequestMethod.GET)
+    @RequestMapping(value = "show.do" , method = RequestMethod.GET)
     public String getShow(HttpServletRequest request){
+        System.out.println("request show");
         request.setAttribute("msg", "internal msg");
         return "show";
+    }
+
+    @RequestMapping("user/show.do")
+    public String userShow(HttpServletRequest request){
+        System.out.println("request user show");
+        return "some";
     }
 
 }

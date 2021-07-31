@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello</title>
-    <base href="http://localhost:8090/winson_study_spring_mvc_v1/">
 
+    <base href="http://localhost:8090/winson_study_spring_mvc_v1/">
+    <title>Hello</title>
 </head>
 <body>
     <p>Hello Winson Jsp</p>
