@@ -21,7 +21,12 @@ import java.util.stream.Stream;
 public class ZookeeperDemo {
 
     public static void main(String[] args) throws InterruptedException, IOException, KeeperException {
-        testZookeeper();
+//        testZookeeper();
+        String lock1 = "winson_temp0000000015";
+        String lock2 = "winson_temp0000000016";
+        System.out.println(lock1);
+        System.out.println(lock2);
+        System.out.println(lock1.compareTo(lock2));
     }
 
     public static void testDate(){
@@ -90,16 +95,23 @@ public class ZookeeperDemo {
         };
 
         byte[] ciwei = zooKeeper.getData("/ciwei", null, stat);
-        System.out.println("ciwei is : " + new String(ciwei));
+        if(ciwei != null){
+            System.out.println("ciwei is : " + new String(ciwei));
+        }
         System.out.println("ciwei cversion : " + stat.getCversion());
         System.out.println("ciwei dversion : " + stat.getVersion());
 
         Stat exists = zooKeeper.exists("/ciwei", false);
         System.out.println("/ciwei node exists : " + exists);
 
-        zooKeeper.setData("/ciwei", "hello13".getBytes(), exists.getVersion());
+        zooKeeper.setData("/ciwei", "hello21".getBytes(), exists.getVersion());
 
 //        semaphore.acquire();
+
+        zooKeeper.create("/winson_temp", null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+        zooKeeper.create("/winson_temp", null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+
+        Thread.sleep(10000);
 
         zooKeeper.close();
 
