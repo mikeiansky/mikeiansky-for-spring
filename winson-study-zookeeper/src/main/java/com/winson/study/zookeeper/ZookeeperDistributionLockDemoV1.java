@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
  * @author winson
  * @date 2021/8/2
  **/
-public class ZookeeperDistributionLockDemoC1 {
+public class ZookeeperDistributionLockDemoV1 {
 
     public static void lock(ZooKeeper zooKeeper) {
 //        System.out.println("ready lock");
