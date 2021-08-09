@@ -23,6 +23,7 @@
         <module>winson-study-spring-mvc-v1</module>
         <module>winson-study-spring-aop-v1</module>
         <module>winson-study-zookeeper</module>
+        <module>winson-study-mvc-jetty</module>
     </modules>
     <build>
         <plugins>
