@@ -24,6 +24,8 @@
         <module>winson-study-spring-aop-v1</module>
         <module>winson-study-zookeeper</module>
         <module>winson-study-mvc-jetty</module>
+        <module>winson-study-dubbo-service</module>
+        <module>winson-study-dubbo-client</module>
     </modules>
     <build>
         <plugins>
