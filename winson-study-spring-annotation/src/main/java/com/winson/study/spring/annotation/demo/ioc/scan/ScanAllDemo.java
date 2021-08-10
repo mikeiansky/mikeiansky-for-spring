@@ -1,6 +1,7 @@
 package com.winson.study.spring.annotation.demo.ioc.scan;
 
 import com.winson.study.spring.annotation.aop.SimpleAop;
+import com.winson.study.spring.annotation.bean.CircularOne;
 import com.winson.study.spring.annotation.bean.Person;
 import com.winson.study.spring.annotation.config.ScanAllConfig;
 import com.winson.study.spring.annotation.utils.ContextUtils;
@@ -24,8 +25,11 @@ public class ScanAllDemo {
 //        Map<String, Person> personMap = context.getBeansOfType(Person.class);
 //        System.out.println(personMap);
 
-        Map<String,ContextUtils> aopMap = context.getBeansOfType(ContextUtils.class);
-        System.out.println(aopMap);
+//        Map<String,ContextUtils> aopMap = context.getBeansOfType(ContextUtils.class);
+//        System.out.println(aopMap);
+
+        Map<String,CircularOne> circularMap = context.getBeansOfType(CircularOne.class);
+        System.out.println(circularMap);
 
     }
 
