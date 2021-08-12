@@ -28,6 +28,17 @@ public class HelloController {
     @Autowired
     private ApplicationContext context;
 
+    @RequestMapping(value = "/name.do", method = RequestMethod.POST)
+    public ModelAndView nameDo(String name) {
+        System.out.println("this is name .do : " + name);
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.addObject("msg", "this is name do!");
+//        modelAndView.setViewName("/WEB-INF/views/show.jsp");
+
+        return modelAndView;
+    }
+
     @RequestMapping("/some.do")
     public ModelAndView someDo() {
         System.out.println("this is some .do");
@@ -80,21 +91,21 @@ public class HelloController {
         return student;
     }
 
-    @RequestMapping(value = "show.do" , method = RequestMethod.GET)
-    public String getShow(HttpServletRequest request){
+    @RequestMapping(value = "show.do", method = RequestMethod.GET)
+    public String getShow(HttpServletRequest request) {
         System.out.println("request show");
         request.setAttribute("msg", "internal msg");
         return "show";
     }
 
     @RequestMapping("user/show.do")
-    public String userShow(HttpServletRequest request){
+    public String userShow(HttpServletRequest request) {
         System.out.println("request user show");
         return "some";
     }
 
     @RequestMapping("/forward")
-    public ModelAndView forward(){
+    public ModelAndView forward() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "[haha]");
         mav.setViewName("forward:/WEB-INF/views/forward.jsp");
@@ -102,7 +113,7 @@ public class HelloController {
     }
 
     @RequestMapping("/redirect")
-    public ModelAndView redirect(){
+    public ModelAndView redirect() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", "[redirect]");
         mav.setViewName("redirect:/redirect.jsp");
@@ -112,7 +123,7 @@ public class HelloController {
     @RequestMapping("/exception")
     public String exception() throws MyException {
         ModelAndView mav = new ModelAndView();
-        if(1 ==1 ){
+        if (1 == 1) {
             throw new MyException("this is my exception");
         }
         return "hello";
