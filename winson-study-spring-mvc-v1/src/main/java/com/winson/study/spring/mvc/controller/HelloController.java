@@ -2,12 +2,16 @@ package com.winson.study.spring.mvc.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.winson.study.spring.mvc.controller.exception.MyException;
+import com.winson.study.spring.mvc.controller.pojo.WinsonUser;
 import com.winson.study.spring.mvc.controller.vo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -126,6 +130,20 @@ public class HelloController {
         if (1 == 1) {
             throw new MyException("this is my exception");
         }
+        return "hello";
+    }
+
+    @RequestMapping(value = "user.do", method = RequestMethod.POST)
+    public String user(@RequestBody WinsonUser winsonUser){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String result = mapper.writeValueAsString(winsonUser);
+            System.out.println("winson user result : " + result);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+//        System.out.println("winson user ----> : " + );
         return "hello";
     }
 

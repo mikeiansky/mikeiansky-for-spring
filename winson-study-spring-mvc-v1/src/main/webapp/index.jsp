@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Hello</title>
-    <base href="http://localhost:8090/winson_study_spring_mvc_v1/">
+    <base href="http://localhost:8090/winson_study_spring_mvc_v1_war_exploded/">
 
 </head>
 <body>
@@ -37,6 +37,12 @@
     <form action="saveInfo2.do" method="post">
         <input type="text" name="name"><br/>
         <input type="text" name="age"><br/>
+        <input type="submit" value="提交">
+    </form>
+
+    <p> name.do 中文请求</p>
+    <form action="name.do" method="post">
+        <input type="text" name="name"><br/>
         <input type="submit" value="提交">
     </form>
 
