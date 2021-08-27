@@ -11,6 +11,7 @@ public class WinsonFilter implements Filter {
 
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("Winson Filter init");
+
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

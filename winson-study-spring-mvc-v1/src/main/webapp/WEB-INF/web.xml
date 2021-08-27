@@ -24,7 +24,18 @@
 <web-app version="2.4"
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         metadata-complete="false"
+>
+
+  <context-param>
+    <param-name>dispatch-servlet</param-name>
+    <param-value>rootDispatch</param-value>
+  </context-param>
+  <context-param>
+    <param-name>company</param-name>
+    <param-value>rootCompany</param-value>
+  </context-param>
 
   <servlet>
     <servlet-name>winson</servlet-name>
@@ -64,6 +75,12 @@
     <filter-name>winsonFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <listener>
+    <listener-class>com.winson.study.spring.mvc.v2.MySessionListener</listener-class>
+    <listener-class>com.winson.study.spring.mvc.v2.MyServletContextListener</listener-class>
+    <listener-class>com.winson.study.spring.mvc.v2.MyServletRequestListener</listener-class>
+  </listener>
   
 </web-app>
         
