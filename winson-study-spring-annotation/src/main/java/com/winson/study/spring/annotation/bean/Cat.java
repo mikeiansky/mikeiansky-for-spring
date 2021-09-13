@@ -23,6 +23,7 @@ public class Cat implements DisposableBean, InitializingBean, ApplicationContext
     public Cat() {
         System.out.println("cat construct");
         System.out.println("cat boss : " + boss);
+        System.out.println("cat class loader =====> " + getClass().getClassLoader());
     }
 
     @Autowired

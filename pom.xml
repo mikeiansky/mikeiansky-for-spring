@@ -26,6 +26,7 @@
         <module>winson-study-mvc-jetty</module>
         <module>winson-study-dubbo-service</module>
         <module>winson-study-dubbo-client</module>
+        <module>winson-study-spring-mvc-shiro</module>
     </modules>
     <build>
         <plugins>
