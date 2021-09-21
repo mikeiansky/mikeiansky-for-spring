@@ -27,6 +27,7 @@
         <module>winson-study-dubbo-service</module>
         <module>winson-study-dubbo-client</module>
         <module>winson-study-spring-mvc-shiro</module>
+        <module>winson-study-spring-all</module>
     </modules>
     <build>
         <plugins>
