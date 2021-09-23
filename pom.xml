@@ -8,27 +8,6 @@
     <artifactId>study-spring</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>java-beans-demo</module>
-        <module>winson-study-spring-ioc-overview</module>
-        <module>spring-beans</module>
-        <module>winson-dependency-lookup</module>
-        <module>winson-dependency-injection</module>
-        <module>winson-dependency-source</module>
-        <module>winson-bean-scope</module>
-        <module>winson-bean-lifecycle</module>
-        <module>winson-configuration-metadata</module>
-        <module>winson-spring-resource</module>
-        <module>winson-study-spring-annotation</module>
-        <module>winson-study-spring-mvc-v1</module>
-        <module>winson-study-spring-aop-v1</module>
-        <module>winson-study-zookeeper</module>
-        <module>winson-study-mvc-jetty</module>
-        <module>winson-study-dubbo-service</module>
-        <module>winson-study-dubbo-client</module>
-        <module>winson-study-spring-mvc-shiro</module>
-        <module>winson-study-spring-all</module>
-    </modules>
     <build>
         <plugins>
             <plugin>
