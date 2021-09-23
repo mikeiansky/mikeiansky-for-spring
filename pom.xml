@@ -20,6 +20,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>winson-spring-overview</module>
+    </modules>
 
     <dependencies>
         <dependency>
