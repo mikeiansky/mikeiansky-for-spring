@@ -1,13 +1,16 @@
 package com.winson.spring.dependency.injection.demo;
 
+import com.winson.spring.dependency.injection.annotation.InjectedUser;
 import com.winson.spring.overview.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 
 /**
  * @author winson
@@ -20,6 +23,9 @@ public class AnnotationDependencyResolutionInjectionDemo {
 
     @Resource
     private UserHolder userHolder2;
+
+    @Inject
+    private UserHolder injectionUserHolder;
 
     @Bean
     public UserHolder userHolder(User user) {
@@ -44,11 +50,11 @@ public class AnnotationDependencyResolutionInjectionDemo {
         System.out.println(userHolder);
 
         AnnotationDependencyResolutionInjectionDemo demo = context.getBean(AnnotationDependencyResolutionInjectionDemo.class);
-        System.out.println(demo.userHolder);
-        System.out.println(demo.userHolder2);
-        System.out.println(demo.userHolder == demo.userHolder2);
-        System.out.println(demo.userHolder == userHolder);
-
+        System.out.println("demo.userHolder : "+demo.userHolder);
+        System.out.println("demo.userHolder2 : "+demo.userHolder2);
+//        System.out.println(demo.userHolder == demo.userHolder2);
+//        System.out.println(demo.userHolder == userHolder);
+        System.out.println("injectUserHolder : " + demo.injectionUserHolder);
 
 
         context.close();

@@ -6,6 +6,16 @@
     <bean id="user" class="com.winson.spring.overview.domain.User">
         <property name="name" value="winson"/>
         <property name="age" value="29"/>
+        <property name="city" value="BEIJING"/>
+        <property name="cityArr" value="BEIJING,SHENZHEN"/>
+<!--        <property name="cityList" value="BEIJING,SHANGHAI"/>-->
+<!--        <property name="cityMap">-->
+<!--            <map>-->
+<!--                <entry key="shanghai" value="SHANGHAI"/>-->
+<!--                <entry key="beijing" value="BEIJING"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="resource" value="classpath:/winson-spring-overview-properties.properties"/>-->
     </bean>
 
     <bean id="superUser" class="com.winson.spring.overview.domain.SuperUser" parent="user" primary="true">
