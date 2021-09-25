@@ -23,6 +23,7 @@
     <modules>
         <module>winson-spring-overview</module>
         <module>winson-spring-bean</module>
+        <module>winson-spring-dependency-lookup</module>
     </modules>
 
     <dependencies>
