@@ -24,6 +24,7 @@
         <module>winson-spring-overview</module>
         <module>winson-spring-bean</module>
         <module>winson-spring-dependency-lookup</module>
+        <module>winson-spring-dependency-injection</module>
     </modules>
 
     <dependencies>
