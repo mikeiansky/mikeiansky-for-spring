@@ -44,6 +44,11 @@ public class User {
 //        this.cityMap = cityMap;
 //    }
 
+
+    public User() {
+        System.out.println("user init");
+    }
+
     public Resource getResource() {
         return resource;
     }
