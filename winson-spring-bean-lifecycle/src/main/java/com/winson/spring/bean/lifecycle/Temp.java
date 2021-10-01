@@ -6,6 +6,12 @@ package com.winson.spring.bean.lifecycle;
  **/
 public class Temp {
 
+    static {
+        System.out.println("temp static initialize!");
+    }
 
+    public Temp() {
+        System.out.println("temp instance initialize!");
+    }
 
 }
