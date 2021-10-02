@@ -26,13 +26,14 @@ public class CustomResourcePatternResolverDemo {
             @Override
             public boolean isPattern(String path) {
                 System.out.println("isPattern : " + path);
-                return false;
+                return path.endsWith(".java");
             }
 
             @Override
             public boolean match(String pattern, String path) {
-                System.out.println("match , pattern : " + pattern + " , path : " + path);
-                return false;
+//                System.out.println("match , pattern : " + pattern + " , path : " + path);
+//                return path.endsWith(".java");
+                return path.endsWith(".java");
             }
 
             @Override
@@ -67,6 +68,7 @@ public class CustomResourcePatternResolverDemo {
         });
 
         Resource[] resource = resolver.getResources(path);
+        System.out.println("==========");
         Arrays.stream(resource).map(ResourceUtils::getContent).forEach(System.out::println);
     }
 
