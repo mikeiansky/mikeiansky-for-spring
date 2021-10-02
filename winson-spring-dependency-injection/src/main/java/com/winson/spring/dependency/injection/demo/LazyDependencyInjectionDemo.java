@@ -17,6 +17,9 @@ public class LazyDependencyInjectionDemo {
     private ObjectProvider<User> userObjectProvider;
 
     @Autowired
+    private ObjectProvider<User> userObjectProvider2;
+
+    @Autowired
     private ObjectFactory<User> userObjectFactory;
 
     public static void main(String[] args) {
@@ -29,8 +32,10 @@ public class LazyDependencyInjectionDemo {
         reader.loadBeanDefinitions(xmlClassPath);
 
         context.refresh();
-
+        System.out.println("after refresh");
         LazyDependencyInjectionDemo demo = context.getBean(LazyDependencyInjectionDemo.class);
+        System.out.println("demo.userObjectProvider == demo.userObjectFactory : " + (demo.userObjectProvider == demo.userObjectFactory));
+        System.out.println("demo.userObjectProvider == userObjectProvider2.userObjectFactory : " + (demo.userObjectProvider == demo.userObjectProvider2));
         User user1 = demo.userObjectProvider.getObject();
         User user2 = demo.userObjectProvider.getObject();
         User user3 = demo.userObjectFactory.getObject();
