@@ -28,6 +28,7 @@
         <module>winson-spring-dependency-source</module>
         <module>winson-spring-bean-lifecycle</module>
         <module>winson-spring-bean-metadata</module>
+        <module>winson-spring-resource</module>
     </modules>
 
     <dependencies>
