@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Lazy;
 public class ActionOne {
 
     @Autowired
-//    @Lazy
+    @Lazy
     private ActionTwo two;
 
     public ActionOne(){

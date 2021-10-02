@@ -24,14 +24,14 @@ public class BeanFactoryAnnotationBeanCycleDependencyDemo {
 
         BeanDefinition oneBeanDefinition = new GenericBeanDefinition();
         oneBeanDefinition.setBeanClassName(ActionOne.class.getName());
-        oneBeanDefinition.setAutowireCandidate(true);
-        oneBeanDefinition.setLazyInit(true);
+//        oneBeanDefinition.setAutowireCandidate(true);
+//        oneBeanDefinition.setLazyInit(true);
 //        oneBeanDefinition.getPropertyValues().add("two");
 //        oneBeanDefinition.setDependsOn("two2");
 
         BeanDefinition twoBeanDefinition = new GenericBeanDefinition();
         twoBeanDefinition.setBeanClassName(ActionTwo.class.getName());
-        twoBeanDefinition.setLazyInit(true);
+//        twoBeanDefinition.setLazyInit(true);
 
         beanFactory.registerBeanDefinition("one", oneBeanDefinition);
         beanFactory.registerBeanDefinition("two", twoBeanDefinition);
@@ -39,7 +39,7 @@ public class BeanFactoryAnnotationBeanCycleDependencyDemo {
 //        ActionTwo two = beanFactory.getBean(ActionTwo.class);
         System.out.println("====== one ======");
         System.out.println("one : " + one);
-        System.out.println("one.getTwo() : " + one.getTwo());
+//        System.out.println("one.getTwo() : " + one.getTwo());
 //        System.out.println("====== two ======");
 //        System.out.println("two : " + two);
 //        System.out.println("two.getOne() : " + two.getOne());
