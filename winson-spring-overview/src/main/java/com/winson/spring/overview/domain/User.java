@@ -22,12 +22,22 @@ public class User {
 
     private int id;
 
+    private Company company;
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     //    private List<City> cityList;
@@ -100,14 +110,13 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 ", city=" + city +
                 ", cityArr=" + Arrays.toString(cityArr) +
-//                ", cityList=" + cityList +
-//                ", cityMap=" + cityMap +
-                ", resource=" + resource +
+                ", id=" + id +
+                ", company=" + company +
+//                ", resource=" + resource +
                 '}';
     }
 }
