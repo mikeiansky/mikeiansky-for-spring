@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="context">
+        <prop key="name">wenxiang</prop>
+        <prop key="age">35</prop>
+    </util:properties>
+
+<!--    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.winson.spring.bean.type.convert.PropertiesToStringConvert"/>
+        </property>
+    </bean>
+
+    <bean class="com.winson.spring.bean.type.convert.WinsonConvertRegistrar"/>
+
+    <bean id="user" class="com.winson.spring.overview.domain.User">
+        <property name="context">
+            <value>
+                id=13
+                name=winson
+            </value>
+        </property>
+        <property name="contextAsString" ref="context"/>
+    </bean>
+
+</beans>

@@ -5,6 +5,7 @@ import org.springframework.core.io.Resource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author winson
@@ -23,6 +24,33 @@ public class User {
     private int id;
 
     private Company company;
+
+    private Properties context;
+
+    private String contextAsString;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", city=" + city +
+                ", cityArr=" + Arrays.toString(cityArr) +
+                ", id=" + id +
+                ", company=" + company +
+                ", context=" + context +
+                ", contextAsString='" + contextAsString + '\'' +
+                ", resource=" + resource +
+                '}';
+    }
+
+    public String getContextAsString() {
+        return contextAsString;
+    }
+
+    public void setContextAsString(String contextAsString) {
+        this.contextAsString = contextAsString;
+    }
 
     public int getId() {
         return id;
@@ -55,8 +83,16 @@ public class User {
 //    }
 
 
+    public Properties getContext() {
+        return context;
+    }
+
+    public void setContext(Properties context) {
+        this.context = context;
+    }
+
     public User() {
-        System.out.println("user init");
+//        System.out.println("user init");
     }
 
     public Resource getResource() {
@@ -107,16 +143,4 @@ public class User {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", city=" + city +
-                ", cityArr=" + Arrays.toString(cityArr) +
-                ", id=" + id +
-                ", company=" + company +
-//                ", resource=" + resource +
-                '}';
-    }
 }
