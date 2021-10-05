@@ -1,5 +1,8 @@
 package com.winson.spring.generic;
 
+import org.springframework.core.annotation.AnnotatedElementUtils;
+import org.springframework.stereotype.Component;
+
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +42,8 @@ public class GenericDemo<E> {
         Arrays.stream(clazz.getInterfaces()).forEach(System.out::println);
         System.out.println("getGenericInterfaces == ");
         Arrays.stream(clazz.getGenericInterfaces()).forEach(System.out::println);
+
+//        AnnotatedElementUtils.findMergedAnnotation(GenericDemo.class, Component.class);
 
     }
 
