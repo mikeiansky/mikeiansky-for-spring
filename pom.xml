@@ -34,6 +34,7 @@
         <module>winson-spring-bean-type-convert</module>
         <module>winson-spring-generic</module>
         <module>winson-spring-event</module>
+        <module>winson-spring-annotation</module>
     </modules>
 
     <dependencies>
