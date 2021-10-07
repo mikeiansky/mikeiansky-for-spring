@@ -12,18 +12,19 @@ public class ContextAnnotationBeanCycleDependencyDemo {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
-        context.register(ActionOne.class);
-        context.register(ActionTwo.class);
+        context.register(CycleOne.class);
+        context.register(CycleTwo.class);
 
         context.refresh();
 
-        ActionOne one = context.getBean(ActionOne.class);
+        CycleOne one = context.getBean(CycleOne.class);
+        CycleTwo two = context.getBean(CycleTwo.class);
         System.out.println("==== one ====");
         System.out.println("one : " + one);
-        System.out.println("one.getTwo() : " + one.getTwo());
-//        System.out.println("==== two ====");
-//        System.out.println("two : " + one);
-//        System.out.println("two.getTwo() : " + one.getTwo());
+        System.out.println("one.getCycleTwo() : " + one.getCycleTwo());
+        System.out.println("==== two ====");
+        System.out.println("two : " + one);
+        System.out.println("two.getCycleTwo() : " + two.getCycleOne());
 
     }
 
