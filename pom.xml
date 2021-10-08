@@ -36,6 +36,7 @@
         <module>winson-spring-event</module>
         <module>winson-spring-annotation</module>
         <module>winson-spring-context-lifecycle</module>
+        <module>winson-spring-aop-overview</module>
     </modules>
 
     <dependencies>
