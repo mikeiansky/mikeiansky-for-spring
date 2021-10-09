@@ -64,6 +64,7 @@ public class AopInterceptorDemo {
             }
 
         });
+        System.out.println(echoService.getClass());
         String result = echoService.echo("Hello,World");
         System.out.println(result);
 

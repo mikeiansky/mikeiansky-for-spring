@@ -1,6 +1,7 @@
 package com.winson.spring.bean.lifecycle;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author winson
@@ -14,4 +15,10 @@ public class CycleOne {
     public CycleTwo getCycleTwo() {
         return cycleTwo;
     }
+
+    @Bean
+    public String winsonName(){
+        return "winson";
+    }
+
 }

@@ -37,6 +37,8 @@
         <module>winson-spring-annotation</module>
         <module>winson-spring-context-lifecycle</module>
         <module>winson-spring-aop-overview</module>
+        <module>winson-spring-aop-features</module>
+        <module>winson-spring-utils</module>
     </modules>
 
     <dependencies>
