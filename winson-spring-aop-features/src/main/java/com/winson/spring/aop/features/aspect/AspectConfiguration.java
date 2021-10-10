@@ -1,6 +1,8 @@
 package com.winson.spring.aop.features.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * @author winson
@@ -9,8 +11,14 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class AspectConfiguration {
 
-    public void anyPublicMethod(){
+    @Pointcut("execution(public * *(..))")
+    public void anyPublicMethod() {
+        System.out.println("any method pointcut");
+    }
 
+    @Before("anyPublicMethod()")
+    public void before() {
+        System.out.println("do before any method ");
     }
 
 }

@@ -32,7 +32,15 @@ public class AspectJAnnotationUsingAPIDemo {
 
         Map<String,Object> proxyCache = aspectJProxyFactory.getProxy();
         proxyCache.put("key1", "A");
+        proxyCache.put("key2", "B");
         System.out.println(proxyCache.get("key1"));
+
+//        int i = 0;
+//        System.out.println(++i);
+//        System.out.println(i);
+//        int j = 0;
+//        System.out.println(j++);
+//        System.out.println(j);
 
     }
 
