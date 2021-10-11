@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
@@ -13,18 +14,19 @@ import java.util.HashMap;
  * @author winson
  * @date 2021/10/2
  **/
-@Configuration
+//@Configuration // could config bean as config class for full mode
+//@Component // could config bean as config class for lite mode
 @PropertySource("classpath:/META-INF/winson.properties")
 public class PropertySourceDemo {
 
-    @Value("${age}")
+    @Value("${winson.age}")
     private int age;
 
-//    @Bean
-//    public TestIf createTestIf(@Value("${age}") String age){
-//        System.out.println("TestIf age : " + age);
-//        return new TestIf();
-//    }
+    @Bean
+    public TestIf createTestIf(@Value("${age}") String age){
+        System.out.println("TestIf age : " + age);
+        return new TestIf();
+    }
 
     public static void main(String[] args) {
 
@@ -32,10 +34,10 @@ public class PropertySourceDemo {
 
         context.register(PropertySourceDemo.class);
 
-        HashMap<String,Object> sourceMap = new HashMap<>();
-        sourceMap.put("age", 44);
-        MapPropertySource mapPropertySource = new MapPropertySource("haha",sourceMap);
-        context.getEnvironment().getPropertySources().addFirst(mapPropertySource);
+//        HashMap<String,Object> sourceMap = new HashMap<>();
+//        sourceMap.put("age", 44);
+//        MapPropertySource mapPropertySource = new MapPropertySource("haha",sourceMap);
+//        context.getEnvironment().getPropertySources().addFirst(mapPropertySource);
 
         context.refresh();
 

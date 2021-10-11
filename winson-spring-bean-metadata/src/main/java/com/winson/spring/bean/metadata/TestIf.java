@@ -1,10 +1,15 @@
 package com.winson.spring.bean.metadata;
 
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * @author winson
  * @date 2021/9/28
  **/
 public class TestIf {
+
+    @Value("${winson.age}")
+    private String age;
 
     public static void main(String[] args) {
 
@@ -35,4 +40,7 @@ public class TestIf {
 
     }
 
+    public String getAge() {
+        return age;
+    }
 }
