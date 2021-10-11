@@ -29,7 +29,14 @@ public class ProxyFactoryDemo {
         proxyFactory.addAdvice(new MethodInterceptor() {
             @Override
             public Object invoke(MethodInvocation invocation) throws Throwable {
-                System.out.println("invocation : " + invocation);
+                System.out.println("invocation 1: " + invocation);
+                return invocation.proceed();
+            }
+        });
+        proxyFactory.addAdvice(new MethodInterceptor() {
+            @Override
+            public Object invoke(MethodInvocation invocation) throws Throwable {
+                System.out.println("invocation 2: " + invocation);
                 return invocation.proceed();
             }
         });
