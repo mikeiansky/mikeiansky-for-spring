@@ -13,9 +13,9 @@ public class DefaultEchoService implements EchoService{
 
         Random random = new Random();
         Boolean result = random.nextBoolean();
-        if(Boolean.TRUE.equals(result)){
-            throw new RuntimeException(" For Propose ... ");
-        }
+//        if(Boolean.TRUE.equals(result)){
+//            throw new RuntimeException(" For Propose ... ");
+//        }
 
 //        if(Boolean.TRUE.equals(result) || Boolean.FALSE.equals(result)){
 //            throw new RuntimeException(" For Propose ... ");
