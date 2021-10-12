@@ -19,8 +19,8 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.geekbang</groupId>
-            <artifactId>aop-overview</artifactId>
+            <groupId>com.winson</groupId>
+            <artifactId>winson-spring-aop-overview</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
