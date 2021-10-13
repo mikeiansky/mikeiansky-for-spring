@@ -2,7 +2,6 @@ package com.winson.spring.aop.features;
 
 import com.winson.spring.aop.features.aspect.AspectConfiguration;
 import com.winson.spring.aop.overview.DefaultEchoService;
-import com.winson.spring.aop.overview.EchoService;
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
@@ -31,24 +30,49 @@ public class AspectJAnnotationUsingAPIDemo {
 
             @Override
             public void before(Method method, Object[] args, Object target) throws Throwable {
-                System.out.printf("before method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
-                System.out.printf("before test : %s \n", target);
+                System.out.printf("before-1 method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
+                System.out.printf("before-1 test : %s \n", target);
                 method.invoke(target, args);
             }
 
         });
+
+//        aspectJProxyFactory.addAdvice(new MethodBeforeAdvice() {
+//
+//            @Override
+//            public void before(Method method, Object[] args, Object target) throws Throwable {
+//                System.out.printf("before-2 method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
+//                System.out.printf("before-2 test : %s \n", target);
+//                method.invoke(target, args);
+//            }
+//
+//        });
+//
 //        aspectJProxyFactory.addAdvice(new AfterReturningAdvice() {
 //            @Override
 //            public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-//                System.out.printf("afterReturning method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
-//                System.out.printf("afterReturning test : %s , returnValue %s \n", target, returnValue);
+//                System.out.printf("afterReturning-1 method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
+//                System.out.printf("afterReturning-1 test : %s , returnValue %s \n", target, returnValue);
 //                method.invoke(target, args);
 //            }
 //
 //        });
 
+        aspectJProxyFactory.addAdvice(new AfterReturningAdvice() {
+            @Override
+            public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
+                System.out.printf("afterReturning-2 method name : %s, args : %s, target : %s \n", method.getName(), Arrays.asList(args), target);
+                System.out.printf("afterReturning-2 test : %s , returnValue %s \n", target, returnValue);
+                method.invoke(target, args);
+            }
+
+        });
+
         Map<String, Object> proxyCache = aspectJProxyFactory.getProxy();
+        // 无缓存处理
         proxyCache.put("key1", "A");
+        // 这之后会有缓存
+        proxyCache.put("key1", "B");
 //        proxyCache.put("key2", "B");
 //        System.out.println(proxyCache.get("key1"));
 

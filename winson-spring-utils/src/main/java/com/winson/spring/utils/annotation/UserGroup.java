@@ -16,8 +16,8 @@ import java.lang.annotation.*;
 @User(name = "group-user-default", age = 11)
 public @interface UserGroup {
 
-    String groupName() default "";
+    String groupName() default "default-user-group";
 
-    int groupCount() default 0;
+    int groupCount() default 3333;
 
 }

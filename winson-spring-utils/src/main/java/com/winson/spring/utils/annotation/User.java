@@ -15,8 +15,8 @@ import java.lang.annotation.*;
 @Inherited
 public @interface User {
 
-    String name() default "";
+    String name() default "default-user";
 
-    int age() default 0;
+    int age() default 2222;
 
 }

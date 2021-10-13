@@ -15,8 +15,8 @@ import java.lang.annotation.*;
 @Inherited
 public @interface School {
 
-    String address() default "";
+    String address() default "default-school";
 
-    int size() default 0;
+    int size() default 1111;
 
 }
