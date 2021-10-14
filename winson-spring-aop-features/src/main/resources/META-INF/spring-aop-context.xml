@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    <aop:aspectj-autoproxy/>-->
+
+    <bean id="aspectXmlConfig" class="com.winson.spring.aop.features.aspect.AspectXmlConfig"/>
+
+    <aop:config>
+        <aop:aspect id="aspectXmlConfig" ref="aspectXmlConfig">
+            <aop:pointcut id="anyPublicMethod" expression="execution(public * *(..))"/>
+            <aop:before method="publicBefore" pointcut-ref="anyPublicMethod"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="methodInterceptor" class="com.winson.spring.aop.features.interceptor.EchoServiceMethodInterceptor"/>
+
+    <bean id="echoService" class="com.winson.spring.aop.overview.DefaultEchoService"/>
+
+    <bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="targetName" value="echoService"/>
+        <property name="interceptorNames" value="methodInterceptor"/>
+    </bean>
+
+</beans>
