@@ -54,7 +54,7 @@ public class ProxyFactoryDemo {
 
         EchoService proxy = (EchoService) proxyFactory.getProxy();
         // 会重复创建 AopProxy
-        EchoService proxy2 = (EchoService) proxyFactory.getProxy();
+//        EchoService proxy2 = (EchoService) proxyFactory.getProxy();
 
         System.out.println(proxy.echo("Hello,world!"));
 
