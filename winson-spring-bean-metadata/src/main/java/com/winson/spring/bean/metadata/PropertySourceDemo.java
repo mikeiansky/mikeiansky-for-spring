@@ -23,7 +23,7 @@ public class PropertySourceDemo {
     private int age;
 
     @Bean
-    public TestIf createTestIf(@Value("${age}") String age){
+    public TestIf createTestIf(@Value("${winson.age}") String age){
         System.out.println("TestIf age : " + age);
         return new TestIf();
     }
