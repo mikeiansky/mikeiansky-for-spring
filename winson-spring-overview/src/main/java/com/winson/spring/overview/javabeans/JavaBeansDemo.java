@@ -37,7 +37,7 @@ public class JavaBeansDemo {
                 .forEach(pd -> {
                     pd.setPropertyEditorClass(MyPropertyEditorSupport.class);
                     System.out.println(pd.getName());
-                    System.out.println(pd.getValue(pd.getName()));
+//                    System.out.println(pd.getValue(pd.getName()));
                 });
 
     }

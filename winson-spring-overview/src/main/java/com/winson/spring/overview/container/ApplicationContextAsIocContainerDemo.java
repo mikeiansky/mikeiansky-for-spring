@@ -1,5 +1,6 @@
 package com.winson.spring.overview.container;
 
+import com.winson.spring.overview.domain.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
@@ -21,6 +22,8 @@ public class ApplicationContextAsIocContainerDemo {
 
         int beanDefinitionCount = reader.loadBeanDefinitions(xmlPath);
         System.out.println("load bean count : " + beanDefinitionCount);
+
+//        System.out.println(beanFactory.getBean(User.class));
 
     }
 
