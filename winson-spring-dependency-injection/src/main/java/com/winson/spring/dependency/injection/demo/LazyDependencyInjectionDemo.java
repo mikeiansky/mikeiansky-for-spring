@@ -35,7 +35,7 @@ public class LazyDependencyInjectionDemo {
         System.out.println("after refresh");
         LazyDependencyInjectionDemo demo = context.getBean(LazyDependencyInjectionDemo.class);
         System.out.println("demo.userObjectProvider == demo.userObjectFactory : " + (demo.userObjectProvider == demo.userObjectFactory));
-        System.out.println("demo.userObjectProvider == userObjectProvider2.userObjectFactory : " + (demo.userObjectProvider == demo.userObjectProvider2));
+        System.out.println("demo.userObjectProvider == demo.userObjectProvider2 : " + (demo.userObjectProvider == demo.userObjectProvider2));
         User user1 = demo.userObjectProvider.getObject();
         User user2 = demo.userObjectProvider.getObject();
         User user3 = demo.userObjectFactory.getObject();

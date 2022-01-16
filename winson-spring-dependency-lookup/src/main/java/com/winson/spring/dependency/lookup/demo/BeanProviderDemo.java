@@ -16,11 +16,18 @@ public class BeanProviderDemo {
 
         ObjectProvider<User> objectProvider = context.getBeanProvider(User.class);
         System.out.println(objectProvider);
-        System.out.println(objectProvider.getObject());
+        System.out.println(" ---------- ");
+        User u1 = objectProvider.getObject();
+        User u2 = objectProvider.getObject();
+        System.out.println("u1 : " + u1);
+        System.out.println("u2 : " + u2);
+        System.out.println("u1 == u2 : " + (u1 == u2));
+        System.out.println(" ---------- ");
         objectProvider.stream().forEach(System.out::println);
-
+        System.out.println(" ---------- ");
         ObjectProvider<String> strObjectProvider = context.getBeanProvider(String.class);
         System.out.println(strObjectProvider.getIfAvailable());
+        System.out.println(" ---------- ");
         String s1 = strObjectProvider.getIfAvailable(() -> {
             System.out.println("create s1");
             return "hhh1";
@@ -30,14 +37,14 @@ public class BeanProviderDemo {
             return "hhh2";
         });
         String s3 = strObjectProvider.getIfAvailable();
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s1 == s2);
+        System.out.println("s1 : " + s1);
+        System.out.println("s1 : " + s2);
+        System.out.println("s1 : " + s3);
+        System.out.println("s1 == s2 : " + (s1 == s2));
 
         String s15 = "cc";
         String s16 = "cc";
-        System.out.println(s15 == s16);
+        System.out.println("s15 == s16 : " + (s15 == s16));
 
     }
 

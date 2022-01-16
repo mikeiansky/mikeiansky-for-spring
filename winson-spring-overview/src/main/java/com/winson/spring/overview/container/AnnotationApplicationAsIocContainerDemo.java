@@ -1,8 +1,12 @@
 package com.winson.spring.overview.container;
 
 import com.winson.spring.overview.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.EmbeddedValueResolverAware;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.util.StringValueResolver;
 
 
 /**
@@ -19,6 +23,18 @@ public class AnnotationApplicationAsIocContainerDemo {
         return user;
     }
 
+    @Autowired(required = false)
+    private EmbeddedValueResolverAware environmentAware;
+
+//    @Bean
+//    public EmbeddedValueResolverAware aa(){
+//        return new EmbeddedValueResolverAware() {
+//            @Override
+//            public void setEmbeddedValueResolver(StringValueResolver resolver) {
+//
+//            }
+//        };
+//    }
 
     public static void main(String[] args) {
 
@@ -28,6 +44,7 @@ public class AnnotationApplicationAsIocContainerDemo {
 
         User user = context.getBean(User.class);
         System.out.println(user);
+        System.out.println("-->"+context.getBean(AnnotationApplicationAsIocContainerDemo.class).environmentAware);
 
     }
 
