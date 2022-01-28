@@ -1,11 +1,9 @@
 package com.winson.spring.bean.metadata;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -17,6 +15,7 @@ import java.util.HashMap;
 //@Configuration // could config bean as config class for full mode
 //@Component // could config bean as config class for lite mode
 @PropertySource("classpath:/META-INF/winson.properties")
+@WinsonPlaceholderAnnotation("zhou-wen-xiang")
 public class PropertySourceDemo {
 
     @Value("${winson.age}")
