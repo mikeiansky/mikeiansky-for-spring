@@ -1,11 +1,14 @@
 package com.winson.spring.bean.metadata;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 
 /**
@@ -16,14 +19,36 @@ import java.util.HashMap;
 //@Component // could config bean as config class for lite mode
 @PropertySource("classpath:/META-INF/winson.properties")
 @WinsonPlaceholderAnnotation("zhou-wen-xiang")
-public class PropertySourceDemo {
+public class PropertySourceDemo implements InitializingBean {
 
     @Value("${winson.age}")
     private int age;
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("PropertySourceDemo ===> afterPropertiesSet");
+    }
+
+    @PostConstruct
+    public void onPostConstruct(){
+        System.out.println("PropertySourceDemo ===> onPostConstruct");
+    }
+
     @Bean
     public TestIf createTestIf(@Value("${winson.age}") String age){
-        System.out.println("TestIf age : " + age);
+        System.out.println("createTestIf TestIf age : " + age);
+        return new TestIf();
+    }
+
+    @Bean
+    public TestIf createTestIfWithTwo(@Value("${winson.age}") String age, @Value("${winson.address}") String address){
+        System.out.println("createTestIfWithTwo TestIf age : " + age);
+        return new TestIf();
+    }
+
+    @Bean
+    public static TestIf createTestUseStatic(@Value("${winson.age}") String age){
+        System.out.println("TestIf createTestUseStatic age : " + age);
         return new TestIf();
     }
 
