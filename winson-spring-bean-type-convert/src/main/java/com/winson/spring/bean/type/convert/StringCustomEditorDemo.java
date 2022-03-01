@@ -14,6 +14,7 @@ public class StringCustomEditorDemo {
         String path = "classpath:/META-INF/convert-demo.xml";
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(path);
 
+
         User user = context.getBean(User.class);
         System.out.println(user);
 
