@@ -30,6 +30,7 @@ public class AnnotatedDemo {
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})
+    @Inherited
     @WinsonAnnotationTwo("runtime-two")
     public @interface WinsonAnnotationThree {
         String value() default "three";
