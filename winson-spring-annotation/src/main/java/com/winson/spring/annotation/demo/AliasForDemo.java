@@ -30,6 +30,9 @@ public class AliasForDemo {
 
         String oneOtherName() default "one-other-name";
 
+        @AliasFor("oneAge")
+        int otherOneAge() default 1;
+
     }
 
     @Retention(RetentionPolicy.RUNTIME)
@@ -44,6 +47,9 @@ public class AliasForDemo {
 
         @AliasFor(annotation = One.class, attribute = "oneOtherName")
         String twoOtherName() default "two-together-name";
+
+        @AliasFor(annotation = One.class, attribute = "topName")
+        String twoTopName() default "two-top-name";
     }
 
     @Retention(RetentionPolicy.RUNTIME)
@@ -59,6 +65,9 @@ public class AliasForDemo {
 
         int threeAge() default 3;
 
+        @AliasFor(annotation = One.class, value = "oneAge")
+        int threeForOneAge() default 31;
+
 //        @AliasFor(annotation = Two.class, attribute = "twoName")
         @AliasFor(annotation = Two.class, value = "twoName")
 //        @AliasFor(annotation = One.class, attribute = "oneName")
@@ -72,6 +81,7 @@ public class AliasForDemo {
     }
 
     public static void main(String[] args) {
+        // MirrorSet 是出现多个的情况 比如 @one 的同一个属性， 被@two注解，也被@three注解，就会出现一个方法被多次AliasFor的情况
         MergedAnnotations annotations = MergedAnnotations.from(AliasForDemo.class, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY);
         System.out.println("=== one annotation ===");
         MergedAnnotation<One> oneAnnotation = annotations.get(One.class);
