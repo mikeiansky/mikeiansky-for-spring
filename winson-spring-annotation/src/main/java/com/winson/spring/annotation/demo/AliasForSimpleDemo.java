@@ -27,7 +27,7 @@ public class AliasForSimpleDemo {
 
         String twoName() default "this is two name";
 
-        int twoZZ() default 23;
+        String twoZZ() default "twoZZ";
 
 
     }
@@ -41,12 +41,17 @@ public class AliasForSimpleDemo {
 
         int threeQQ() default 32;
 
+        @AliasFor(annotation = Two.class, value = "twoAA")
         int threeXX() default 33;
 
-        int threeYY() default 34;
+        @AliasFor(annotation = Two.class, value = "twoAA")
+        int threeYY() default 33;
 
         @AliasFor(annotation = Two.class, value = "twoName")
         String threeName() default "this is three name";
+
+        String twoZZ() default "twoZZ ==> @@@@@ Three @@@@";
+//        String twoZZ();
 
     }
 
@@ -54,6 +59,9 @@ public class AliasForSimpleDemo {
     @Retention(RetentionPolicy.RUNTIME)
     @Three
     public @interface Four {
+
+        @AliasFor(annotation = Two.class, value = "twoZZ")
+        String twoZZ() default "twoZZ ==> @@@@@ Three @@@@";
 
     }
 
@@ -65,6 +73,8 @@ public class AliasForSimpleDemo {
         MergedAnnotation<Two> twoMergedAnnotation = mergedAnnotations.get(Two.class);
 
         System.out.println(twoMergedAnnotation.getValue("twoName").get());
+        System.out.println(twoMergedAnnotation.getValue("twoAA").get());
+        System.out.println(twoMergedAnnotation.getValue("twoZZ").get());
 
     }
 
