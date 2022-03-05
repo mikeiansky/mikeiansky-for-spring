@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
  * @date 2022/3/3
  **/
 @AliasForSimpleDemo.Four
+//@AliasForSimpleDemo.Four
 //@AliasForSimpleDemo.Three
 public class AliasForSimpleDemo {
 
@@ -57,6 +58,7 @@ public class AliasForSimpleDemo {
     @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     @Three
+    @Repeatable(Fours.class)
     public @interface Four {
 
         @AliasFor(annotation = Two.class, value = "twoAA")
@@ -65,6 +67,12 @@ public class AliasForSimpleDemo {
         @AliasFor(annotation = Two.class, value = "twoZZ")
         String twoZZ() default "twoZZ ==> @@@@@ Three @@@@";
 
+    }
+
+    @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface Fours{
+        Four[] value();
     }
 
     public static void main(String[] args) {
