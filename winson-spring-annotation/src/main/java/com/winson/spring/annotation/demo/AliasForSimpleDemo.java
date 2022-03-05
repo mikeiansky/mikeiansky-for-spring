@@ -4,10 +4,9 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.annotation.MergedAnnotation;
 import org.springframework.core.annotation.MergedAnnotations;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author winson
@@ -60,6 +59,9 @@ public class AliasForSimpleDemo {
     @Three
     public @interface Four {
 
+        @AliasFor(annotation = Two.class, value = "twoAA")
+        int fourXX() default 44;
+
         @AliasFor(annotation = Two.class, value = "twoZZ")
         String twoZZ() default "twoZZ ==> @@@@@ Three @@@@";
 
@@ -69,6 +71,22 @@ public class AliasForSimpleDemo {
 
         MergedAnnotations mergedAnnotations = MergedAnnotations.from(AliasForSimpleDemo.class,
                 MergedAnnotations.SearchStrategy.TYPE_HIERARCHY);
+
+        System.out.println(mergedAnnotations.stream()
+                .map(annotationMergedAnnotation -> {
+                    System.out.println("aaaa---> 1");
+                    return annotationMergedAnnotation;
+                })
+                .map(annotationMergedAnnotation -> {
+                    System.out.println("bbbb---> 2");
+                    return annotationMergedAnnotation;
+                })
+                .collect(Collectors.toList()));
+
+//        // --
+//        MergedAnnotation<Three> threeMergedAnnotation = mergedAnnotations.get(Three.class);
+//        // will go to four
+//        System.out.println(threeMergedAnnotation.getValue("threeXX").get());
 
         MergedAnnotation<Two> twoMergedAnnotation = mergedAnnotations.get(Two.class);
 
