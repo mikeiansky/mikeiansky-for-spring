@@ -6,5 +6,5 @@ import java.util.ArrayList;
  * @author winson
  * @date 2021/10/4
  **/
-public class StringList extends ArrayList<String> {
+public class StringList<A,C> extends ArrayList<Flag<A,C>> {
 }
