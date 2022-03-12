@@ -30,9 +30,17 @@ public class LazyAnnotationContextDemo {
         context.refresh();
         System.out.println("after refresh ======= ");
 
-        LazyAnnotationContextDemo demo = context.getBean(LazyAnnotationContextDemo.class);
-        System.out.println("demo : " + demo);
-        System.out.println("demo.temp : " + demo.temp);
+//        LazyAnnotationContextDemo demo = context.getBean(LazyAnnotationContextDemo.class);
+//        System.out.println("demo : " + demo);
+//        System.out.println("--- split --- ");
+//        System.out.println("demo.temp1 : " + demo.temp);
+//        System.out.println("demo.temp2 : " + demo.temp);
+
+        context.getBean(LazyAnnotationContextDemo.class);
+        System.out.println("demo : " + context.getBean(LazyAnnotationContextDemo.class));
+        System.out.println("--- split --- ");
+        System.out.println("demo.temp3 : " + context.getBean(LazyAnnotationContextDemo.class).temp);
+        System.out.println("demo.temp4 : " + context.getBean(LazyAnnotationContextDemo.class).temp);
 
 //        System.out.println(context.getBean(Temp.class));
 
