@@ -24,6 +24,11 @@ public class PropertySourceDemo implements InitializingBean {
     @Value("${winson.age}")
     private int age;
 
+    @Lazy
+    public PropertySourceDemo(){
+        System.out.println("PropertySourceDemo init");
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("PropertySourceDemo ===> afterPropertiesSet");
@@ -62,8 +67,9 @@ public class PropertySourceDemo implements InitializingBean {
 //        sourceMap.put("age", 44);
 //        MapPropertySource mapPropertySource = new MapPropertySource("haha",sourceMap);
 //        context.getEnvironment().getPropertySources().addFirst(mapPropertySource);
-
+        System.out.println("refresh --- start");
         context.refresh();
+        System.out.println("refresh --- end");
 
         PropertySourceDemo demo = context.getBean(PropertySourceDemo.class);
         System.out.println(demo);
