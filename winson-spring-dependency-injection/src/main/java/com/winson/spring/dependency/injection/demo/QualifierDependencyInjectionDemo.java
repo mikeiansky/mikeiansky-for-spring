@@ -80,6 +80,7 @@ public class QualifierDependencyInjectionDemo {
     @Order(Ordered.LOWEST_PRECEDENCE - 3)
     public static AutowiredAnnotationBeanPostProcessor beanPostProcessor() {
         AutowiredAnnotationBeanPostProcessor processor = new AutowiredAnnotationBeanPostProcessor();
+        System.out.println("custom processor : " + processor);
         processor.setAutowiredAnnotationType(InjectedUser.class);
         return processor;
     }
