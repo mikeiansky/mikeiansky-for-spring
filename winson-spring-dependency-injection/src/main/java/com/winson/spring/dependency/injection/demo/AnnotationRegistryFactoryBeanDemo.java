@@ -14,7 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  **/
 public class AnnotationRegistryFactoryBeanDemo implements FactoryBean<User>, BeanFactoryAware {
 
-    public static class Hello{
+    public static class Hello {
 
     }
 
@@ -28,12 +28,13 @@ public class AnnotationRegistryFactoryBeanDemo implements FactoryBean<User>, Bea
     @Override
     public User getObject() throws Exception {
         System.out.println("getObject @@ User");
-        return beanFactory.getBean(User.class);
+//        return beanFactory.getBean(User.class);
+        return new User();
     }
 
     @Override
     public Class<?> getObjectType() {
-        return Hello.class; // 可以
+        return User.class; // 可以
 //        return AnnotationRegistryFactoryBeanDemo.class; // 不行
     }
 
@@ -41,15 +42,22 @@ public class AnnotationRegistryFactoryBeanDemo implements FactoryBean<User>, Bea
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(AnnotationRegistryFactoryBeanDemo.class);
 
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(context);
-        String resourcePath = "classpath:/winson-spring-overview.xml";
-        reader.loadBeanDefinitions(resourcePath);
+//        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(context);
+//        String resourcePath = "classpath:/winson-spring-overview.xml";
+//        reader.loadBeanDefinitions(resourcePath);
 
         context.refresh();
 
         AnnotationRegistryFactoryBeanDemo demo = context.getBean(AnnotationRegistryFactoryBeanDemo.class);
-        Hello Hello = context.getBean(Hello.class);
-        System.out.println(context.getBean(User.class));
+//        Hello Hello = context.getBean(Hello.class);
+        System.out.println("demo : " + demo);
+        // 取getObject
+        System.out.println("value-demo : " + context.getBean("annotationRegistryFactoryBeanDemo"));
+        // 取demo本身
+        System.out.println("&demo : " + context.getBean("&annotationRegistryFactoryBeanDemo"));
+//        System.out.println("&&demo : " + context.getBean("&&annotationRegistryFactoryBeanDemo"));
+//        System.out.println("&&&demo : " + context.getBean("&&&&annotationRegistryFactoryBeanDemo"));
+        System.out.println("User : " + context.getBean(User.class));
 //        System.out.println(context.getBean(AnnotationRegistryFactoryBeanDemo.class));
 //        System.out.println(demo.getObject());
 
