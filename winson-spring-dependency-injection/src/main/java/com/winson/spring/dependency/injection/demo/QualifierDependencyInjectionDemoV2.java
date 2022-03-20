@@ -1,5 +1,6 @@
 package com.winson.spring.dependency.injection.demo;
 
+import com.winson.spring.dependency.injection.other.MyGeneric;
 import com.winson.spring.overview.domain.User;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,9 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class QualifierDependencyInjectionDemoV2 {
 
+
     @Autowired
-    @Qualifier("user2")
+//    @Qualifier("user2")
     private User user;
 
     @Bean
@@ -70,6 +72,7 @@ public class QualifierDependencyInjectionDemoV2 {
         QualifierDependencyInjectionDemoV2 demo = context.getBean(QualifierDependencyInjectionDemoV2.class);
 
         System.out.println("demo : " + demo);
+        System.out.println("demo.factoryUser : " + context.getBean("&factoryUser"));
         System.out.println("demo.user : " + demo.user);
         System.out.println("demo.user1 : " + context.getBean("user1"));
         System.out.println("demo.user2 : " + context.getBean("user2"));

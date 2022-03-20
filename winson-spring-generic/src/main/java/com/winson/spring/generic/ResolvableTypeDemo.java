@@ -18,6 +18,7 @@ public class ResolvableTypeDemo {
 //        ResolvableType resolvableType = ResolvableType.forClass(StringList.class);
         ResolvableType resolvableType = ResolvableType.forClass(WinsonMap.class);
         System.out.println("========== Super info ==========");
+        System.out.println(resolvableType.getType() instanceof Class);
         System.out.println(resolvableType.resolveGeneric());
         System.out.println(resolvableType.getSuperType().getGenerics()[0]);
 //        System.out.println(resolvableType.getSuperType().getGenerics()[0].getGenerics()[0].getSource());

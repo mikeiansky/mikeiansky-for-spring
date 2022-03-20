@@ -2,6 +2,7 @@ package com.winson.spring.dependency.injection.demo;
 
 import com.winson.spring.dependency.injection.annotation.*;
 import com.winson.spring.dependency.injection.context.MyAnnotationContext;
+import com.winson.spring.dependency.injection.other.MyGeneric;
 import com.winson.spring.overview.domain.User;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import java.lang.annotation.Annotation;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author winson
@@ -22,15 +25,27 @@ import java.lang.annotation.Annotation;
 @Configuration
 //@GroupOne // 这里是有效的
 //@GroupTwo // 这里是有效的
-public class QualifierDependencyStaticCreateBeanInjectionDemoV2 {
+public class QualifierDependencyStaticCreateBeanInjectionDemoV2 extends MyGeneric<User> {
+
+//    @Autowired
+////    @Qualifier("user2")
+////    @MyQualifierHierarchyOne // 这里是可以的，可以扫描到，只有一层 ，
+////    @MyQualifierHierarchyTwo // 这里是可以的，可以扫描到，只有两层 ，
+////    @MyQualifierHierarchyThree // 这里是不行的，无法扫描到，超过了三层
+//    @Qualifier("user2") // 如果不指定就是默认的
+//    private User user;
+
+//    @Autowired
+//    @Qualifier("&factoryUser")
+//    private Object value;
 
     @Autowired
-//    @Qualifier("user2")
-//    @MyQualifierHierarchyOne // 这里是可以的，可以扫描到，只有一层 ，
-//    @MyQualifierHierarchyTwo // 这里是可以的，可以扫描到，只有两层 ，
-//    @MyQualifierHierarchyThree // 这里是不行的，无法扫描到，超过了三层
-    @Qualifier("user2") // 如果不指定就是默认的
-    private User user;
+    @Qualifier("factory-user")
+    private Collection<User> userCollection;
+
+    @Autowired
+    @Qualifier("factory-user")
+    private Map<String, User> userMap;
 
     @Bean
     @Primary
@@ -54,6 +69,7 @@ public class QualifierDependencyStaticCreateBeanInjectionDemoV2 {
     @Bean
 //    @Primary
 //    @Qualifier("user2")
+    @Qualifier("factory-user")
     public static FactoryBean<User> factoryUser(){
         return new FactoryBean<User>() {
             @Override
@@ -90,7 +106,10 @@ public class QualifierDependencyStaticCreateBeanInjectionDemoV2 {
         QualifierDependencyStaticCreateBeanInjectionDemoV2 demo = context.getBean(QualifierDependencyStaticCreateBeanInjectionDemoV2.class);
 
         System.out.println("demo : " + demo);
-        System.out.println("demo.user : " + demo.user);
+//        System.out.println("demo.user : " + demo.user);
+        System.out.println("demo.userCollection : " + demo.userCollection);
+        System.out.println("demo.userMap : " + demo.userMap);
+//        System.out.println("demo.value : " + demo.value);
         System.out.println("demo.user1 : " + context.getBean("user1"));
         System.out.println("demo.user2 : " + context.getBean("user2"));
 
