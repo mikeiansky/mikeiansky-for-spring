@@ -20,7 +20,7 @@ public class QualifierDependencyInjectionDemoV2 {
 
 
     @Autowired
-//    @Qualifier("user2")
+    @Qualifier("user2")
     private User user;
 
     @Bean
