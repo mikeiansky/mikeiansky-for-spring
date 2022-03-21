@@ -30,12 +30,15 @@ public class JavaObserverDemo {
 
         MyObservable observable = new MyObservable();
 
-        MyObserver myObserver = new MyObserver();
+        MyObserver myObserver1 = new MyObserver();
+        MyObserver myObserver2 = new MyObserver();
 //        myObserver.update(observable, "hello event");
 
-        observable.addObserver(myObserver);
+        observable.addObserver(myObserver1);
+        observable.addObserver(myObserver2);
         observable.setChanged();
         observable.notifyObservers("hello");
+//        observable.setChanged();
 
 
     }

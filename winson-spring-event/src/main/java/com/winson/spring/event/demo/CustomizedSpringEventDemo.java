@@ -22,7 +22,7 @@ public class CustomizedSpringEventDemo {
         context.addApplicationListener(new ApplicationListener<ApplicationEvent>() {
             @Override
             public void onApplicationEvent(ApplicationEvent event) {
-                System.out.println("event : " + event);
+                System.out.println("****** event : " + event);
             }
         });
 
@@ -36,18 +36,18 @@ public class CustomizedSpringEventDemo {
     }
 
     @EventListener
-    public void onStart(ContextRefreshedEvent event){
-        System.out.println("on refresh event : " + event);
+    public void onRefreshListener(ContextRefreshedEvent event){
+        System.out.println("onRefresh event : " + event);
     }
 
     @EventListener
-    public void onStart(ContextStartedEvent event){
-        System.out.println("on start event : " + event);
+    public void onStartListener(ContextStartedEvent event){
+        System.out.println("onStart event : " + event);
     }
 
     @EventListener
-    public void onStart(ContextClosedEvent event){
-        System.out.println("on close event : " + event);
+    public void onCloseListener(ContextClosedEvent event){
+        System.out.println("onClose event : " + event);
     }
 
 

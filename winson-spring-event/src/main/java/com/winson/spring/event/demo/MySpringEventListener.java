@@ -11,7 +11,7 @@ public class MySpringEventListener implements ApplicationListener<MySpringEvent>
 
     @Override
     public void onApplicationEvent(MySpringEvent event) {
-        System.out.println(Thread.currentThread().getName() + " onApplicationEvent , event : " + event.getSource());
+        System.out.println(Thread.currentThread().getName() + " ===> onApplicationEvent , event : " + event.getSource());
     }
 
 }
