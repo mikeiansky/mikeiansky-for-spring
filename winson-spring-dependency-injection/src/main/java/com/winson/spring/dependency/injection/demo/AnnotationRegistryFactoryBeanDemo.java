@@ -53,6 +53,7 @@ public class AnnotationRegistryFactoryBeanDemo implements FactoryBean<User>, Bea
         System.out.println("demo : " + demo);
         // 取getObject
         System.out.println("value-demo : " + context.getBean("annotationRegistryFactoryBeanDemo"));
+        System.out.println("value-demo : " + context.getBean("annotationRegistryFactoryBeanDemo"));
         // 取demo本身
         System.out.println("&demo : " + context.getBean("&annotationRegistryFactoryBeanDemo"));
 //        System.out.println("&&demo : " + context.getBean("&&annotationRegistryFactoryBeanDemo"));
