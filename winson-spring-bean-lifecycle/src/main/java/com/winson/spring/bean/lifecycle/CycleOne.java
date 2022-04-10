@@ -2,6 +2,7 @@ package com.winson.spring.bean.lifecycle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * @author winson
@@ -9,8 +10,9 @@ import org.springframework.context.annotation.Bean;
  **/
 public class CycleOne {
 
+//    @Lazy
     @Autowired
-    private CycleTwo cycleTwo;
+    public CycleTwo cycleTwo;
 
     public CycleTwo getCycleTwo() {
         return cycleTwo;
