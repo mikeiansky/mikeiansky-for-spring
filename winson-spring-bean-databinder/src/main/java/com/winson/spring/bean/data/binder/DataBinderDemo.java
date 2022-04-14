@@ -36,7 +36,7 @@ public class DataBinderDemo {
 
         dataBinder.bind(pv);
 
-        System.out.println(user);
+        System.out.println("user : "+user);
         BindingResult bindingResult = dataBinder.getBindingResult();
 //        System.out.println(bindingResult);
         bindingResult.getAllErrors().stream().forEach(System.out::println);

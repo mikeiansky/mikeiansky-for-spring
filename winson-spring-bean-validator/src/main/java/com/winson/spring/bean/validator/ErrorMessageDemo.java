@@ -20,7 +20,7 @@ public class ErrorMessageDemo {
 
         Errors errors = new BeanPropertyBindingResult(user, "user");
 
-        errors.reject("name.required", "user name is null default");
+        errors.reject("name.required", "user name is null default 2");
 
         MessageSource messageSource = ValidatorDemo.createMessageSource();
 
@@ -32,6 +32,7 @@ public class ErrorMessageDemo {
 //            System.out.println(errors);
             System.out.println("error code : " + error.getCode());
             System.out.println(messageSource.getMessage(error.getCode(), null, Locale.getDefault()));
+//            System.out.println(messageSource.getMessage(error.getCode(), null, Locale.getDefault()));
         }
 
     }

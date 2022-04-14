@@ -50,7 +50,7 @@ public class ValidatorDemo {
 
         for (ObjectError error : errors.getAllErrors()) {
 //            System.out.println(error);
-
+            System.out.println("error.getCode() : " + error.getCode());
             System.out.println(messageSource.getMessage(error.getCode(), null, Locale.getDefault()));
 
         }
