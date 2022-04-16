@@ -8,7 +8,10 @@ import java.lang.reflect.Proxy;
  **/
 public class JdkDynamicProxyDemoV1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
+
+        Class<?> result = Class.forName("com.winson.spring.aop.overviewv2.EchoService");
+        System.out.println(result);
 
         DefaultEchoService defaultEchoService = new DefaultEchoService();
         EchoService echoService = (EchoService) Proxy.newProxyInstance(
