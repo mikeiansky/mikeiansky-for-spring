@@ -10,7 +10,7 @@ public class DefaultEchoService implements EchoService, Serializable {
 
     @Override
     public void sayHello(String msg) {
-        msg.length();
+//        msg.length();
         System.out.println("hello msg : " + msg + " , I'm default echo service!");
     }
 

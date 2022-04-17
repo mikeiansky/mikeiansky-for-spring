@@ -40,6 +40,7 @@
         <module>winson-spring-aop-features</module>
         <module>winson-spring-utils</module>
         <module>winson-spring-aop-overview_v2</module>
+        <module>winson-spring-aop-features_v2</module>
     </modules>
 
     <dependencies>
