@@ -19,13 +19,15 @@ public class SimpleFactoryBeanDemo {
         beanFactory.registerBeanDefinition("simpleFactoryBean", beanDefinition);
 
         SimpleFactoryBean simpleFactoryBean = beanFactory.getBean(SimpleFactoryBean.class);
-        System.out.println(simpleFactoryBean);
-        System.out.println(simpleFactoryBean.getObject());
-        System.out.println(simpleFactoryBean.getObject());
+        System.out.println("simpleFactoryBean : "+simpleFactoryBean);
+        System.out.println("simpleFactoryBean.getObject() : "+simpleFactoryBean.getObject());
+        System.out.println("simpleFactoryBean.getObject() : "+simpleFactoryBean.getObject());
         Temp temp1 = beanFactory.getBean(Temp.class);
         System.out.println("temp1 : " + temp1);
         Temp temp2 = beanFactory.getBean(Temp.class);
         System.out.println("temp2 : " + temp2);
+        System.out.println("getBean(simpleFactoryBean): "+beanFactory.getBean("simpleFactoryBean"));
+        System.out.println("getBean(&simpleFactoryBean): "+beanFactory.getBean("&simpleFactoryBean"));
 
 //        ActionOne one = beanFactory.getBean(ActionOne.class);
 //        System.out.println("action one : " + one);
