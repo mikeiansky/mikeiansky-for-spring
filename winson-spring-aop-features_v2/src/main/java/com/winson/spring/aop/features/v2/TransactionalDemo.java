@@ -24,7 +24,7 @@ import java.util.function.Supplier;
  * @date 2022/4/19
  **/
 @EnableTransactionManagement
-public class TransactionalDemo {
+public class TransactionalDemo implements TransactionDemoService{
 
     public class Hello {
 
@@ -76,7 +76,7 @@ public class TransactionalDemo {
     }
 
     @Bean
-    public TransactionManager createTransactionManager() {
+    public static TransactionManager createTransactionManager() {
 //        PlatformTransactionManager transactionManager = new PlatformTransactionManager(){
 //
 //            @Override
@@ -112,6 +112,7 @@ public class TransactionalDemo {
             @Override
             protected void doBegin(Object transaction, TransactionDefinition definition) throws TransactionException {
                 System.out.println(Thread.currentThread() + " , doBegin transaction: " + transaction + " , definition : " + definition);
+
             }
 
             @Override
@@ -128,23 +129,31 @@ public class TransactionalDemo {
         };
     }
 
+//    @Transactional(rollbackFor = Throwable.class)
     @Transactional
-    public void testTransaction() {
-//        TransactionSynchronizationManager.initSynchronization();
-        System.out.println("demo do test!");
+    public void testTransaction() throws Throwable {
+        // 放在前面，先创建
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+
             @Override
             public void afterCommit() {
                 System.out.println("test :: afterCommit");
             }
+
         });
+//        TransactionSynchronizationManager.initSynchronization();
+        System.out.println("testTransaction start ...!");
+        if(1==1){
+            throw new Throwable();
+        }
+        System.out.println("testTransaction end ...!");
     }
 
     public void normalAction(){
         System.out.println("This is normal action ... ");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
 //        try {
 //            Class.forName("reactor.core.publisher.Flux");
 ////            Class.forName("com.winson.spring.aop.features.v2.TransactionalDemo");
@@ -156,13 +165,14 @@ public class TransactionalDemo {
         context.register(TransactionalDemo.class);
         context.refresh();
 
-        TransactionalDemo demo = context.getBean(TransactionalDemo.class);
+        TransactionDemoService demo = context.getBean(TransactionDemoService.class);
         demo.testTransaction();
         System.out.println("----------");
-        demo.normalAction();
+//        demo.normalAction();
 
 //        testException();
 
     }
+
 
 }
