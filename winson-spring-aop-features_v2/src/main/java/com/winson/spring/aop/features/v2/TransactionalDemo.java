@@ -1,21 +1,43 @@
 package com.winson.spring.aop.features.v2;
 
+import com.winson.spring.aop.features.v2.mapper.BlogMapper;
+//import org.apache.ibatis.mapping.Environment;
+//import org.apache.ibatis.session.Configuration;
+//import org.apache.ibatis.session.SqlSession;
+//import org.apache.ibatis.session.SqlSessionFactory;
+//import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+//import org.apache.ibatis.transaction.TransactionFactory;
+//import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import com.winson.spring.aop.features.v2.mapper.MyMapperRegister;
+import com.winson.spring.aop.features.v2.mybatis.CiweiMyBatisFactoryBean;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.reactivestreams.Publisher;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.ReactiveAdapter;
 import org.springframework.core.ReactiveTypeDescriptor;
+import org.springframework.jdbc.datasource.ConnectionHolder;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.*;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
-import org.springframework.transaction.support.AbstractPlatformTransactionManager;
-import org.springframework.transaction.support.DefaultTransactionStatus;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.transaction.support.*;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -23,13 +45,43 @@ import java.util.function.Supplier;
  * @author winson
  * @date 2022/4/19
  **/
+@Import(MyMapperRegister.class)
+@Configuration
 @EnableTransactionManagement
-public class TransactionalDemo implements TransactionDemoService{
+public class TransactionalDemo implements TransactionDemoService , BeanFactoryAware {
+
+
+
+    private BeanFactory beanFactory;
+
+    public static DriverManagerDataSource dataSource;
+
+    static {
+        String url = "jdbc:mysql://172.16.2.211:3306/zblock?useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true";
+        dataSource = new DriverManagerDataSource();
+        dataSource.setUrl(url);
+        dataSource.setUsername("root");
+        dataSource.setPassword("123456");
+    }
+
+//    @Bean
+//    public static SqlSessionFactory createSqlSessionFactory(){
+//        TransactionFactory transactionFactory = new JdbcTransactionFactory();
+//        Environment environment = new Environment("development", transactionFactory, dataSource);
+//        Configuration configuration = new Configuration(environment);
+//        configuration.addMapper(BlogMapper.class);
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
+//        return sqlSessionFactory;
+//    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        this.beanFactory = beanFactory;
+    }
 
     public class Hello {
 
     }
-
 
     private static void testException() {
         try {
@@ -75,7 +127,10 @@ public class TransactionalDemo implements TransactionDemoService{
 //        KotlinDelegate
     }
 
-    @Bean
+    @Autowired
+    private BlogMapper blogMapper;
+
+//    @Bean
     public static TransactionManager createTransactionManager() {
 //        PlatformTransactionManager transactionManager = new PlatformTransactionManager(){
 //
@@ -129,10 +184,49 @@ public class TransactionalDemo implements TransactionDemoService{
         };
     }
 
-//    @Transactional(rollbackFor = Throwable.class)
-    @Transactional
+    @Bean
+    public static DataSourceTransactionManager getDataSourceManager(){
+//        DataSource dataSource = new
+
+        DataSourceTransactionManager manager = new DataSourceTransactionManager();
+        manager.setDataSource(dataSource);
+        return manager;
+    }
+
+    @Transactional(rollbackFor = Throwable.class)
+//    @Transactional
     public void testTransaction() throws Throwable {
         // 放在前面，先创建
+
+        ConnectionHolder connectionHolder = (ConnectionHolder) new ArrayList<>(TransactionSynchronizationManager.getResourceMap().values()).get(0);
+        System.out.println("connectionHolder:"+connectionHolder.getConnection());
+
+//        Statement statement = connectionHolder.getConnection().createStatement();
+//        statement.execute("update `sensitive` set content ='winson-0001' where id = 10000000");
+
+//        ResultSet resultSet = statement.executeQuery("select * from `sensitive` ");
+
+//        while (resultSet.next()){
+//            System.out.println(resultSet.getString("content"));
+//        }
+
+//        beanFactory.getBean()
+
+//        SqlSessionFactory sqlSessionFactory = beanFactory.getBean(SqlSessionFactory.class);
+//        SqlSession session = sqlSessionFactory.openSession();
+//        System.out.println("SqlSession : "+session.getConnection());
+//        BlogMapper blogMapper = session.getMapper(BlogMapper.class);
+//        BlogMapper blogMapper2 = session.getMapper(BlogMapper.class);
+//        System.out.println("BlogMapper : " + blogMapper);
+//        System.out.println("blogMapper2 : " + blogMapper2);
+//        blogMapper.selectOne();
+        blogMapper.updateOne();
+//        session.commit();
+
+
+//        System.out.println("sqlSessionFactory.getClass():"+sqlSessionFactory.getClass());
+//        System.out.println(beanFactory.getBean(BlogMapper.class));
+
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
 
             @Override
@@ -141,11 +235,12 @@ public class TransactionalDemo implements TransactionDemoService{
             }
 
         });
+
 //        TransactionSynchronizationManager.initSynchronization();
         System.out.println("testTransaction start ...!");
-        if(1==1){
-            throw new Throwable();
-        }
+//        if(1==1){
+//            throw new Throwable();
+//        }
         System.out.println("testTransaction end ...!");
     }
 
@@ -163,6 +258,7 @@ public class TransactionalDemo implements TransactionDemoService{
 //        }
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(TransactionalDemo.class);
+
         context.refresh();
 
         TransactionDemoService demo = context.getBean(TransactionDemoService.class);
