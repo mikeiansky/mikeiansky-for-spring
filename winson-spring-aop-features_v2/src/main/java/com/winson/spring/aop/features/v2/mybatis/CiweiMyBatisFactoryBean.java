@@ -16,12 +16,14 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 public class CiweiMyBatisFactoryBean extends SqlSessionFactoryBean {
 
     public CiweiMyBatisFactoryBean() {
+//        TransactionFactory transactionFactory = new JdbcTransactionFactory();
+//        Environment environment = new Environment("development", transactionFactory, TransactionalDemo.dataSource);
+//        Configuration configuration = new Configuration();
+//        configuration.addMapper(BlogMapper.class);
+//        setConfiguration(configuration);
+//        setTransactionFactory(transactionFactory);
+
         setDataSource(TransactionalDemo.dataSource);
-        TransactionFactory transactionFactory = new JdbcTransactionFactory();
-        Environment environment = new Environment("development", transactionFactory, TransactionalDemo.dataSource);
-        Configuration configuration = new Configuration(environment);
-        configuration.addMapper(BlogMapper.class);
-        setConfiguration(configuration);
     }
 
 }

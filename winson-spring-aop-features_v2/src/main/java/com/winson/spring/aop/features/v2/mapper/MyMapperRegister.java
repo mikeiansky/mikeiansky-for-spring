@@ -29,20 +29,19 @@ public class MyMapperRegister implements ImportBeanDefinitionRegistrar {
         registry.registerBeanDefinition("sqlSessionFactory", rootBeanDefinition);
 
 //        AnnotatedGenericBeanDefinition rfd = new AnnotatedGenericBeanDefinition(SqlSessionFactory.class);
-        RootBeanDefinition aspectFactoryDef = new RootBeanDefinition(SqlSessionFactory.class);
+//        RootBeanDefinition aspectFactoryDef = new RootBeanDefinition(SqlSessionFactory.class);
 
-        RuntimeBeanReference ref = new RuntimeBeanReference("sqlSessionFactory");
-
-        MutablePropertyValues mpv = new MutablePropertyValues();
-        mpv.add("sqlSessionFactory", ref);
-
-        AnnotatedGenericBeanDefinition beanDefinition = new AnnotatedGenericBeanDefinition(MapperFactoryBean.class);
-        ConstructorArgumentValues cav = new ConstructorArgumentValues();
-        cav.addIndexedArgumentValue(0, BlogMapper.class);
-        beanDefinition.setPropertyValues(mpv);
-        beanDefinition.setConstructorArgumentValues(cav);
-
-        registry.registerBeanDefinition("blogMapper", beanDefinition);
+//        RuntimeBeanReference ref = new RuntimeBeanReference("sqlSessionFactory");
+//        MutablePropertyValues mpv = new MutablePropertyValues();
+//        mpv.add("sqlSessionFactory", ref);
+//
+//        AnnotatedGenericBeanDefinition beanDefinition = new AnnotatedGenericBeanDefinition(MapperFactoryBean.class);
+//        ConstructorArgumentValues cav = new ConstructorArgumentValues();
+//        cav.addIndexedArgumentValue(0, BlogMapper.class);
+//        beanDefinition.setPropertyValues(mpv);
+//        beanDefinition.setConstructorArgumentValues(cav);
+//
+//        registry.registerBeanDefinition("blogMapper", beanDefinition);
 
     }
 }

@@ -12,6 +12,7 @@ import com.winson.spring.aop.features.v2.mapper.MyMapperRegister;
 import com.winson.spring.aop.features.v2.mybatis.CiweiMyBatisFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.annotation.MapperScan;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -48,16 +49,15 @@ import java.util.function.Supplier;
 @Import(MyMapperRegister.class)
 @Configuration
 @EnableTransactionManagement
+@MapperScan(basePackages = "com.winson.spring.aop.features.v2.mapper")
 public class TransactionalDemo implements TransactionDemoService , BeanFactoryAware {
-
-
 
     private BeanFactory beanFactory;
 
     public static DriverManagerDataSource dataSource;
 
     static {
-        String url = "jdbc:mysql://172.16.2.211:3306/zblock?useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true";
+        String url = "jdbc:mysql://localhost:3306/winson?useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true";
         dataSource = new DriverManagerDataSource();
         dataSource.setUrl(url);
         dataSource.setUsername("root");
@@ -258,10 +258,12 @@ public class TransactionalDemo implements TransactionDemoService , BeanFactoryAw
 //        }
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(TransactionalDemo.class);
-
+//        context.register(BlogMapper.class);
         context.refresh();
 
         TransactionDemoService demo = context.getBean(TransactionDemoService.class);
+        demo.testTransaction();
+        System.out.println("split --------> 222");
         demo.testTransaction();
         System.out.println("----------");
 //        demo.normalAction();
