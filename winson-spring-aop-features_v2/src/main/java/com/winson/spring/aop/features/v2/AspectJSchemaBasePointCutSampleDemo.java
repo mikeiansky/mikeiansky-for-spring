@@ -11,7 +11,8 @@ public class AspectJSchemaBasePointCutSampleDemo {
 
     public static void main(String[] args) {
 
-        String path = "classpath:/META-INF/spring-aop-context-sample.xml";
+        String path = "classpath*:/META-INF/spring-aop-context-sample.xml";
+//        String path = "classpath:/META-INF/spring-aop-context-sample.xml";
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(path);
         EchoService service = context.getBean(EchoService.class);
         service.sayHello("winson");
