@@ -13,6 +13,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.util.Date;
 import java.util.Map;
 
 @AliasForDemo.Three(aliasForOneTopName = "change-one-alias-for-demo")
@@ -91,6 +92,16 @@ public class AliasForDemo {
         System.out.println(oneAnnotation.getValue("oneOtherName").get());
         Map<String,Object> oneAttributeMap = oneAnnotation.asMap();
         System.out.println(oneAttributeMap);
+
+//        System.out.println("=== two annotation ===");
+
+//        HelloConfig helloConfig = new HelloConfig();
+
+
+//        System.out.println("=== two annotation ===");
+
+        Date date = new Date();
+//        oneAnnotation = annotations.get(One.class);
 
         System.out.println("=== two annotation ===");
         MergedAnnotation<Two> twoAnnotation = annotations.get(Two.class);

@@ -41,6 +41,7 @@
         <module>winson-spring-utils</module>
         <module>winson-spring-aop-overview_v2</module>
         <module>winson-spring-aop-features_v2</module>
+        <module>winson-spring-mvn-dependency</module>
     </modules>
 
     <dependencies>
