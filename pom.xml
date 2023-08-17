@@ -21,28 +21,28 @@
         </plugins>
     </build>
     <modules>
-        <module>winson-spring-overview</module>
-        <module>winson-spring-bean</module>
-        <module>winson-spring-dependency-lookup</module>
-        <module>winson-spring-dependency-injection</module>
-        <module>winson-spring-dependency-source</module>
-        <module>winson-spring-bean-lifecycle</module>
-        <module>winson-spring-bean-metadata</module>
-        <module>winson-spring-resource</module>
-        <module>winson-spring-bean-databinder</module>
-        <module>winson-spring-bean-validator</module>
-        <module>winson-spring-bean-type-convert</module>
-        <module>winson-spring-generic</module>
-        <module>winson-spring-event</module>
-        <module>winson-spring-annotation</module>
-        <module>winson-spring-context-lifecycle</module>
-        <module>winson-spring-aop-overview</module>
-        <module>winson-spring-aop-features</module>
-        <module>winson-spring-utils</module>
-        <module>winson-spring-aop-overview_v2</module>
-        <module>winson-spring-aop-features_v2</module>
-        <module>winson-spring-mvn-dependency</module>
-        <module>winson-spring-back-up</module>
+        <module>back-up/winson-spring-overview</module>
+        <module>back-up/winson-spring-bean</module>
+        <module>back-up/winson-spring-dependency-lookup</module>
+        <module>back-up/winson-spring-dependency-injection</module>
+        <module>back-up/winson-spring-dependency-source</module>
+        <module>back-up/winson-spring-bean-lifecycle</module>
+        <module>back-up/winson-spring-bean-metadata</module>
+        <module>back-up/winson-spring-resource</module>
+        <module>back-up/winson-spring-bean-databinder</module>
+        <module>back-up/winson-spring-bean-validator</module>
+        <module>back-up/winson-spring-bean-type-convert</module>
+        <module>back-up/winson-spring-generic</module>
+        <module>back-up/winson-spring-event</module>
+        <module>back-up/winson-spring-annotation</module>
+        <module>back-up/winson-spring-context-lifecycle</module>
+        <module>back-up/winson-spring-aop-overview</module>
+        <module>back-up/winson-spring-aop-features</module>
+        <module>back-up/winson-spring-utils</module>
+        <module>back-up/winson-spring-aop-overview_v2</module>
+        <module>back-up/winson-spring-aop-features_v2</module>
+        <module>back-up/winson-spring-mvn-dependency</module>
+        <module>ian-sp-bean-overview</module>
     </modules>
 
     <dependencies>
