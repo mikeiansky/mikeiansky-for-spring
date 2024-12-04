@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.winson</groupId>
-    <artifactId>winson-for-spring</artifactId>
+    <artifactId>mikeiansky-for-spring</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
@@ -21,27 +21,27 @@
         </plugins>
     </build>
     <modules>
-        <module>back-up/winson-spring-overview</module>
-        <module>back-up/winson-spring-bean</module>
-        <module>back-up/winson-spring-dependency-lookup</module>
-        <module>back-up/winson-spring-dependency-injection</module>
-        <module>back-up/winson-spring-dependency-source</module>
-        <module>back-up/winson-spring-bean-lifecycle</module>
-        <module>back-up/winson-spring-bean-metadata</module>
-        <module>back-up/winson-spring-resource</module>
-        <module>back-up/winson-spring-bean-databinder</module>
-        <module>back-up/winson-spring-bean-validator</module>
-        <module>back-up/winson-spring-bean-type-convert</module>
-        <module>back-up/winson-spring-generic</module>
-        <module>back-up/winson-spring-event</module>
-        <module>back-up/winson-spring-annotation</module>
-        <module>back-up/winson-spring-context-lifecycle</module>
-        <module>back-up/winson-spring-aop-overview</module>
-        <module>back-up/winson-spring-aop-features</module>
-        <module>back-up/winson-spring-utils</module>
-        <module>back-up/winson-spring-aop-overview_v2</module>
-        <module>back-up/winson-spring-aop-features_v2</module>
-        <module>back-up/winson-spring-mvn-dependency</module>
+        <module>back-up/mikeiansky-spring-overview</module>
+        <module>back-up/mikeiansky-spring-bean</module>
+        <module>back-up/mikeiansky-spring-dependency-lookup</module>
+        <module>back-up/mikeiansky-spring-dependency-injection</module>
+        <module>back-up/mikeiansky-spring-dependency-source</module>
+        <module>back-up/mikeiansky-spring-bean-lifecycle</module>
+        <module>back-up/mikeiansky-spring-bean-metadata</module>
+        <module>back-up/mikeiansky-spring-resource</module>
+        <module>back-up/mikeiansky-spring-bean-databinder</module>
+        <module>back-up/mikeiansky-spring-bean-validator</module>
+        <module>back-up/mikeiansky-spring-bean-type-convert</module>
+        <module>back-up/mikeiansky-spring-generic</module>
+        <module>back-up/mikeiansky-spring-event</module>
+        <module>back-up/mikeiansky-spring-annotation</module>
+        <module>back-up/mikeiansky-spring-context-lifecycle</module>
+        <module>back-up/mikeiansky-spring-aop-overview</module>
+        <module>back-up/mikeiansky-spring-aop-features</module>
+        <module>back-up/mikeiansky-spring-utils</module>
+        <module>back-up/mikeiansky-spring-aop-overview_v2</module>
+        <module>back-up/mikeiansky-spring-aop-features_v2</module>
+        <module>back-up/mikeiansky-spring-mvn-dependency</module>
         <module>ian-sp-bean-overview</module>
     </modules>
 
