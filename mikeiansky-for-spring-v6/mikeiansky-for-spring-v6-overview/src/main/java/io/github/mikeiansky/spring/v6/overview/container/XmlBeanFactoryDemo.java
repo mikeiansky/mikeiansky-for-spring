@@ -9,7 +9,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
  * @date 2023/8/17
  * @desc
  **/
-public class BeanFactoryDemo {
+public class XmlBeanFactoryDemo {
 
     public static void main(String[] args) {
 
