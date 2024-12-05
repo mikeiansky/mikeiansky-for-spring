@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mikeiansky-spring-v6-overview</artifactId>
+    <artifactId>mikeiansky-for-spring-v6-overview</artifactId>
 
     <dependencies>
         <dependency>

@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>mikeiansky-spring-v6-overview</module>
+        <module>mikeiansky-for-spring-v6-overview</module>
     </modules>
 
     <properties>
