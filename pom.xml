@@ -12,6 +12,7 @@
     <modules>
         <!-- spring 5.x -->
         <module>mikeiansky-for-spring-v5</module>
+        <module>mikeiansky-for-spring-v6</module>
     </modules>
 
 </project>
