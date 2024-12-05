@@ -8,18 +8,7 @@
     <artifactId>mikeiansky-for-spring</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
     <modules>
         <module>back-up/mikeiansky-spring-overview</module>
         <module>back-up/mikeiansky-spring-bean</module>
@@ -42,7 +31,7 @@
         <module>back-up/mikeiansky-spring-aop-overview_v2</module>
         <module>back-up/mikeiansky-spring-aop-features_v2</module>
         <module>back-up/mikeiansky-spring-mvn-dependency</module>
-        <module>ian-sp-bean-overview</module>
+        <module>back-up/mikeiansky-spring-bean-overview</module>
     </modules>
 
     <dependencies>
