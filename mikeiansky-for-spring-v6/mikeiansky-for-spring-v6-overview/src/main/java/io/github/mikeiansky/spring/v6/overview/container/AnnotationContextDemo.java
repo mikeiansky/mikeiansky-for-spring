@@ -1,14 +1,17 @@
 package io.github.mikeiansky.spring.v6.overview.container;
 
+import io.github.mikeiansky.spring.v6.overview.conditional.BaseConditional;
 import io.github.mikeiansky.spring.v6.overview.domain.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 
 /**
  * @author mike ian
  * @date 2024/12/5
  * @desc
  **/
+@Conditional(BaseConditional.class)
 public class AnnotationContextDemo {
 
     @Bean

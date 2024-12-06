@@ -1,6 +1,8 @@
 package io.github.mikeiansky.spring.v6.overview.container;
 
+import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
@@ -10,16 +12,35 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  **/
 public class AnnotationBeanFactoryDemo {
 
+    private String tag;
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public static class Other {
+
+    }
+
     public static void main(String[] args) {
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-//        factory.createBean(AnnotationContextDemo.class);
 
-        String beanName = "io.github.mikeiansky.spring.v6.overview.AnnotationContextDemo";
-        AnnotatedGenericBeanDefinition beanDefinition = new AnnotatedGenericBeanDefinition(AnnotationContextDemo.class);
-        factory.registerBeanDefinition(beanName, beanDefinition);
+//        AnnotatedGenericBeanDefinition otherBeanDefinition = new AnnotatedGenericBeanDefinition(Other.class);
+//        factory.registerBeanDefinition(Other.class.getName(), otherBeanDefinition);
 
-        AnnotationContextDemo demo = factory.getBean(AnnotationContextDemo.class);
-        System.out.println(demo);
+        AnnotatedGenericBeanDefinition fatherBeanDefinition = new AnnotatedGenericBeanDefinition(AnnotationBeanFactoryDemo.class);
+//        fatherBeanDefinition.setDependsOn(Other.class.getName());
+        MutablePropertyValues mutablePropertyValues = new MutablePropertyValues();
+        mutablePropertyValues.addPropertyValue("tag", "demo");
+        fatherBeanDefinition.setPropertyValues(mutablePropertyValues);
+//        fatherBeanDefinition.setDependsOn(Other.class.getName());
+        factory.registerBeanDefinition(AnnotationBeanFactoryDemo.class.getName(), fatherBeanDefinition);
+
+        AnnotationBeanFactoryDemo father = factory.getBean(AnnotationBeanFactoryDemo.class);
+        System.out.println(father);
+        System.out.println(father.tag);
+
+//        factory.destroyBean(father);
     }
 
 }
