@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.container;
+package io.github.mikeiansky.spring.v6.overview.context;
 
 import io.github.mikeiansky.spring.v6.overview.conditional.BaseConditional;
 import io.github.mikeiansky.spring.v6.overview.domain.User;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Conditional;
  * @desc
  **/
 @Conditional(BaseConditional.class)
-public class AnnotationContextDemo {
+public class AnnotationContextBaseDemo {
 
     @Bean
     public User user(){
@@ -26,7 +26,7 @@ public class AnnotationContextDemo {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(AnnotationContextDemo.class);
+        context.register(AnnotationContextBaseDemo.class);
         context.refresh();
 
         User user = context.getBean(User.class);
