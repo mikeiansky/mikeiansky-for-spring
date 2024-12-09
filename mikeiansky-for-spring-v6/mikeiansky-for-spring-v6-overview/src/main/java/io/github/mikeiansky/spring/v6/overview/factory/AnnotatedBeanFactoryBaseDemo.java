@@ -6,7 +6,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 /**
  * @author mike ian
  * @date 2024/12/5
- * @desc
+ * @desc bean factory base annotated bean definition
  **/
 public class AnnotatedBeanFactoryBaseDemo {
 

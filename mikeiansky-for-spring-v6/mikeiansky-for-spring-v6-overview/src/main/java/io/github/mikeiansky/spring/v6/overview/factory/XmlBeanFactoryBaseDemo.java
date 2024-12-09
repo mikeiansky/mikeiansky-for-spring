@@ -7,7 +7,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 /**
  * @author mike ian
  * @date 2023/8/17
- * @desc
+ * @desc bean factory base xml bean definition
  **/
 public class XmlBeanFactoryBaseDemo {
 

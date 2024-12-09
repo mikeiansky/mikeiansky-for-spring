@@ -7,7 +7,7 @@ import org.springframework.core.ResolvableType;
 /**
  * @author mike ian
  * @date 2024/12/6
- * @desc
+ * @desc 类型匹配识别
  **/
 public class TypePredictBeanFactoryBaseDemo {
 
