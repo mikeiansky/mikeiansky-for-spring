@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.factory;
+package io.github.mikeiansky.spring.v6.overview.factory.base;
 
 import io.github.mikeiansky.spring.v6.overview.domain.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;

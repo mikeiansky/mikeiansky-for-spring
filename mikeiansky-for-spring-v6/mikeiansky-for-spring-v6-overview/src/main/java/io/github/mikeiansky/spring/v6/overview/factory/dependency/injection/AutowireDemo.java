@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.dependency.injection;
+package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
 import org.springframework.beans.factory.annotation.Autowired;

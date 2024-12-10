@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.context;
+package io.github.mikeiansky.spring.v6.overview.context.base;
 
 import io.github.mikeiansky.spring.v6.overview.conditional.BaseConditional;
 import io.github.mikeiansky.spring.v6.overview.domain.User;

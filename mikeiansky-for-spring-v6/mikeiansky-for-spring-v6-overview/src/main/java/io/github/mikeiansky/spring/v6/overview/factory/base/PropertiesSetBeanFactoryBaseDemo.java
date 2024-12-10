@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.factory;
+package io.github.mikeiansky.spring.v6.overview.factory.base;
 
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;

@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.bean;
+package io.github.mikeiansky.spring.v6.overview.factory.bean;
 
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;

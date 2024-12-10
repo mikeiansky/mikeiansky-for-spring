@@ -1,4 +1,4 @@
-package io.github.mikeiansky.spring.v6.overview.dependency.lookup;
+package io.github.mikeiansky.spring.v6.overview.factory.dependency.lookup;
 
 /**
  * @author mike ian
