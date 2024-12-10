@@ -10,6 +10,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * @desc
  **/
 public class BaseConditional implements Condition {
+
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         return true;

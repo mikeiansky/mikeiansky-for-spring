@@ -2,6 +2,7 @@ package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
+import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
@@ -9,10 +10,14 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @date 2024/12/10
  * @desc
  **/
-public class CircleReferenceDemo {
+public class CircleReferenceEarlySingletonObjectDemo {
 
     public static class One {
         private Two two;
+
+        public void setTwo(Two two) {
+            this.two = two;
+        }
 
         public Two getTwo() {
             return two;
@@ -22,29 +27,33 @@ public class CircleReferenceDemo {
     public static class Two {
         private One one;
 
+        public void setOne(One one) {
+            this.one = one;
+        }
+
         public One getOne() {
             return one;
         }
     }
 
     /**
-     * have exception
      * @param args
      */
     public static void main(String[] args) {
 
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-        AnnotatedGenericBeanDefinition oneBeanDefinition = new AnnotatedGenericBeanDefinition(One.class);
-//        oneBeanDefinition.setLazyInit(true);
 
+        AnnotatedGenericBeanDefinition oneBeanDefinition = new AnnotatedGenericBeanDefinition(One.class);
         AnnotatedGenericBeanDefinition twoBeanDefinition = new AnnotatedGenericBeanDefinition(Two.class);
 
         MutablePropertyValues onePropertyValues = new MutablePropertyValues();
-        onePropertyValues.addPropertyValue("two", twoBeanDefinition);
+        RuntimeBeanReference twoBeanReference = new RuntimeBeanReference("two");
+        onePropertyValues.addPropertyValue("two", twoBeanReference);
         oneBeanDefinition.setPropertyValues(onePropertyValues);
 
         MutablePropertyValues twoPropertyValues = new MutablePropertyValues();
-        onePropertyValues.addPropertyValue("one", oneBeanDefinition);
+        RuntimeBeanReference oneBeanReference = new RuntimeBeanReference("one");
+        twoPropertyValues.addPropertyValue("one", oneBeanReference);
         twoBeanDefinition.setPropertyValues(twoPropertyValues);
 
         factory.registerBeanDefinition("one", oneBeanDefinition);

@@ -34,7 +34,7 @@ public class BeanFactoryLifecycleDemo implements BeanFactoryAware, BeanNameAware
         factory.addBeanPostProcessor(new SmartInstantiationAwareBeanPostProcessor() {
             @Override
             public Class<?> predictBeanType(Class<?> beanClass, String beanName) throws BeansException {
-                System.out.println("SmartInstantiationAwareBeanPostProcessor ==> predictBeanType");
+                System.out.println("SmartInstantiationAwareBeanPostProcessor ==> predictBeanType , beanClass: " + beanClass + ", beanName: " + beanName);
                 return SmartInstantiationAwareBeanPostProcessor.super.predictBeanType(beanClass, beanName);
             }
 

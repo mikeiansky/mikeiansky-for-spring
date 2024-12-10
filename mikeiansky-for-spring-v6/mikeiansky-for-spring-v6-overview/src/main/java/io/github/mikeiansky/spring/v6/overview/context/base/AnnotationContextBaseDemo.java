@@ -11,17 +11,7 @@ import org.springframework.context.annotation.Conditional;
  * @date 2024/12/5
  * @desc
  **/
-@Conditional(BaseConditional.class)
 public class AnnotationContextBaseDemo {
-
-    @Bean
-    public User user(){
-        User user = new User();
-        user.setId(1);
-        user.setName("Mike");
-        user.setAge(22);
-        return user;
-    }
 
     public static void main(String[] args) {
 
@@ -29,8 +19,8 @@ public class AnnotationContextBaseDemo {
         context.register(AnnotationContextBaseDemo.class);
         context.refresh();
 
-        User user = context.getBean(User.class);
-        System.out.println(user);
+        AnnotationContextBaseDemo demo = context.getBean(AnnotationContextBaseDemo.class);
+        System.out.println(demo);
 
     }
 
