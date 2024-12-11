@@ -105,8 +105,7 @@ public class BeanFactoryLifecycleDemo implements BeanFactoryAware, BeanNameAware
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("BeanNameAware ==> " + name);
-
+        System.out.println("BeanNameAware ==> " + name + ", thread : " + Thread.currentThread());
     }
 
     @Override
