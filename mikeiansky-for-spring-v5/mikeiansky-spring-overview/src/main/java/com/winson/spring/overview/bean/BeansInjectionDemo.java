@@ -19,8 +19,11 @@ public class BeansInjectionDemo {
         UserRepository userRepository = context.getBean(UserRepository.class);
         System.out.println(userRepository);
 
+        System.out.println("object factory =====> 1 ");
+        System.out.println(userRepository.getObjectFactory().getObject());
         System.out.println(userRepository.getObjectFactory().getObject());
 
+        System.out.println("object factory =====> 2 ");
         System.out.println(userRepository.getObjectFactory().getObject() == context);
 
         System.out.println("environment : " + context.getBean(Environment.class));

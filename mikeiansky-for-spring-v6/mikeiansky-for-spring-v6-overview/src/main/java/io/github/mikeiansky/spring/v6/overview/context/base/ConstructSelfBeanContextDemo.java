@@ -15,9 +15,13 @@ public class ConstructSelfBeanContextDemo {
         private final One parent;
 
         // 如果不加lazy会报错
-//        public One(@Lazy One parent) {
-        public One(One parent) {
+        public One(@Lazy One parent) {
+//        public One(One parent) {
             this.parent = parent;
+        }
+
+        public void hello(){
+            System.out.println("one say hello");
         }
 
     }
@@ -31,7 +35,7 @@ public class ConstructSelfBeanContextDemo {
         One oneBean = context.getBean(One.class);
         System.out.println(oneBean);
         System.out.println(oneBean.parent);
-
+        oneBean.parent.hello();
     }
 
 }
