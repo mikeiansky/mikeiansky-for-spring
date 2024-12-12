@@ -2,6 +2,8 @@ package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
@@ -33,6 +35,11 @@ public class AutowireDemo {
 
         AnnotatedGenericBeanDefinition twoBeanDefinition = new AnnotatedGenericBeanDefinition(Two.class);
         factory.registerBeanDefinition("two", twoBeanDefinition);
+
+        // 添加处理器
+        AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
+        autowiredAnnotationBeanPostProcessor.setBeanFactory(factory);
+        factory.addBeanPostProcessor(autowiredAnnotationBeanPostProcessor);
 
         One one = factory.getBean(One.class);
         System.out.println(one);

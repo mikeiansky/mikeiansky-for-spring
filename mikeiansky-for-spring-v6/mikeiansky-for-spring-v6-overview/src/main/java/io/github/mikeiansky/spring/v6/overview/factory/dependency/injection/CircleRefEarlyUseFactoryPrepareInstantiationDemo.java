@@ -1,6 +1,7 @@
 package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -29,7 +30,11 @@ public class CircleRefEarlyUseFactoryPrepareInstantiationDemo {
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
         factory.registerBeanDefinition("one", new AnnotatedGenericBeanDefinition(One.class));
         RootBeanDefinition twoBeanDefinition = new RootBeanDefinition(Two.class);
+
+        // 选其中一种都可以
+//        factory.addBeanPostProcessor(new AutowiredAnnotationBeanPostProcessor());
 //        twoBeanDefinition.setAttribute(RootBeanDefinition.PREFERRED_CONSTRUCTORS_ATTRIBUTE, Two.class.getConstructors());
+
         factory.registerBeanDefinition("two", twoBeanDefinition);
 
         // 这里报错
