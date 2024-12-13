@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @date 2024/12/12
  * @desc
  **/
-public class AliasDemo {
+public class AliasNameBeanDemo {
 
     public static class One {
 
