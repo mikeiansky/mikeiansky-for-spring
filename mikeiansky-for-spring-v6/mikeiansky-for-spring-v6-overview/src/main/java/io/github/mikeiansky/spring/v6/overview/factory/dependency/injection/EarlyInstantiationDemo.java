@@ -1,8 +1,6 @@
 package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
-import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 
@@ -11,7 +9,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
  * @date 2024/12/11
  * @desc
  **/
-public class CircleRefEarlyUseFactoryPrepareInstantiationDemo {
+public class EarlyInstantiationDemo {
 
     public static class One {
 

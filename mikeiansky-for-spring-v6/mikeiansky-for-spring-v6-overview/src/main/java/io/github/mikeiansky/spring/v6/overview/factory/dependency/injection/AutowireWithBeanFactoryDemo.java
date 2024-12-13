@@ -3,7 +3,6 @@ package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
@@ -11,7 +10,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @date 2024/12/10
  * @desc
  **/
-public class AutowireDemo {
+public class AutowireWithBeanFactoryDemo {
 
     public static class One {
         @Autowired

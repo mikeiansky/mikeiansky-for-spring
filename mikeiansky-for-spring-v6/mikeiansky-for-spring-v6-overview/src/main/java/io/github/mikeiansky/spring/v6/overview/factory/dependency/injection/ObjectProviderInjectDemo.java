@@ -1,6 +1,6 @@
 package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
-import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
  * @date 2024/12/12
  * @desc
  **/
-public class ObjectFactoryInjectionDemo {
+public class ObjectProviderInjectDemo {
 
     public static class One {
 
@@ -20,7 +20,7 @@ public class ObjectFactoryInjectionDemo {
     public static class Two {
 
         @Autowired
-        private ObjectFactory<One> oneObjectFactory;
+        private ObjectProvider<One> oneObjectProvider;
 
     }
 
@@ -40,9 +40,9 @@ public class ObjectFactoryInjectionDemo {
         System.out.println("one : " + one);
         Two two = beanFactory.getBean(Two.class);
         System.out.println("two : " + two);
-        System.out.println("two.oneObjectFactory : " + two.oneObjectFactory);
-        System.out.println("two.oneObjectFactory.getObject()_1 : " + two.oneObjectFactory.getObject());
-        System.out.println("two.oneObjectFactory.getObject()_2 : " + two.oneObjectFactory.getObject());
+        System.out.println("two.oneObjectProvider : " + two.oneObjectProvider);
+        System.out.println("two.oneObjectProvider.getObject()_1 : " + two.oneObjectProvider.getObject());
+        System.out.println("two.oneObjectProvider.getObject()_2 : " + two.oneObjectProvider.getObject());
 
     }
 

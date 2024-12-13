@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class HelloConfig {
 
     @Bean
-    public String hello(){
+    public String hello() {
         return "winson";
     }
 
