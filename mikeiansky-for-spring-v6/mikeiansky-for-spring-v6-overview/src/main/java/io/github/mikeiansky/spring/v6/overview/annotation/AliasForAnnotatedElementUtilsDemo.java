@@ -25,11 +25,12 @@ public class AliasForAnnotatedElementUtilsDemo {
 
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
-    @FatherAnnotation   // 这里必须要做
+    @FatherAnnotation(helloFather = "hell-father-son")   // 这里必须要做
     public @interface SonAnnotation {
 
         @AliasFor(annotation = FatherAnnotation.class, value = "helloFather")
         String helloSon() default "hello-son";
+
 
     }
 
