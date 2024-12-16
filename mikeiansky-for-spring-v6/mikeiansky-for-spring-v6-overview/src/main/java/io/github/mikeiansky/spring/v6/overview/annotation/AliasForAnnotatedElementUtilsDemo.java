@@ -31,20 +31,26 @@ public class AliasForAnnotatedElementUtilsDemo {
         @AliasFor(annotation = FatherAnnotation.class, value = "helloFather")
         String helloSon() default "hello-son";
 
+//        @AliasFor(annotation = FatherAnnotation.class, value = "helloFather")
+//        String normalSon() default "normal-son";
 
     }
 
     @SonAnnotation(helloSon = "hello-son-one")
     public static class One {
 
-
-
     }
 
     public static void main(String[] args) {
+        // alias 的时候 创建了一个代理， 在代理中进行处理，并且做了缓存
         FatherAnnotation fatherAnnotation = AnnotatedElementUtils.findMergedAnnotation(One.class, FatherAnnotation.class);
+        // 这里是被代理了
+        String helloFather = fatherAnnotation.helloFather();
+        System.out.println("helloFather: " + helloFather);
         System.out.println("fatherAnnotation :: " + fatherAnnotation);
         SonAnnotation sonAnnotation = AnnotatedElementUtils.findMergedAnnotation(One.class, SonAnnotation.class);
+        sonAnnotation.helloSon();
+//        sonAnnotation.normalSon();
         System.out.println("sonAnnotation :: " + sonAnnotation);
     }
 

@@ -6,10 +6,10 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
  * @author mike ian
- * @date 2024/12/6
+ * @date 2024/12/16
  * @desc
  **/
-public class BaseConditional implements Condition {
+public class SimpleConditional implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
