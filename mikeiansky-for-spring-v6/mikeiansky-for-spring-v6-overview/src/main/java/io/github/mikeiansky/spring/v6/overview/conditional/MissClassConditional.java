@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Conditional(SimpleConditional.class)
-public @interface UseConditional {
+public @interface MissClassConditional {
 
     Class<?> value();
 

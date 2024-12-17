@@ -1,10 +1,6 @@
 package io.github.mikeiansky.spring.v6.overview.context.base;
 
-import io.github.mikeiansky.spring.v6.overview.conditional.BaseConditional;
-import io.github.mikeiansky.spring.v6.overview.domain.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 
 /**
  * @author mike ian
