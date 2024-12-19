@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.annotation.AnnotatedElementUtils;
+import org.springframework.core.type.AnnotationMetadata;
 
 /**
  * @author mike ian
@@ -43,6 +44,7 @@ public class AnnotatedElementUtilsDemo {
 
         Configuration configuration = AnnotatedElementUtils.findMergedAnnotation(One.class, Configuration.class);
         System.out.println("configuration : " + configuration);
+
 
     }
 

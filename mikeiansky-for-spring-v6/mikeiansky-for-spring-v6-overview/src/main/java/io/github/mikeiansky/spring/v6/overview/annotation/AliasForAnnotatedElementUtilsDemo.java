@@ -2,6 +2,7 @@ package io.github.mikeiansky.spring.v6.overview.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.annotation.AnnotatedElementUtils;
+import org.springframework.core.type.AnnotationMetadata;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -52,6 +53,14 @@ public class AliasForAnnotatedElementUtilsDemo {
         sonAnnotation.helloSon();
 //        sonAnnotation.normalSon();
         System.out.println("sonAnnotation :: " + sonAnnotation);
+
+        // 未被代理的情况
+        AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(One.class);
+        FatherAnnotation fatherAnnotation2 = annotationMetadata.getAnnotations().get(FatherAnnotation.class).synthesize();
+        System.out.println("fatherAnnotation2 :: " + fatherAnnotation2);
+        String helloFather2 = fatherAnnotation2.helloFather();
+        System.out.println("helloFather2: " + helloFather2);
+        System.out.println(annotationMetadata.getAnnotations().get(FatherAnnotation.class).getValue("helloFather"));
     }
 
 }

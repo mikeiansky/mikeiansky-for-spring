@@ -56,6 +56,7 @@ public class ConfigurationImportBeanDemo {
         System.out.println(two);
         Three three = context.getBean(Three.class);
         System.out.println(three);
+        
     }
 
 }
