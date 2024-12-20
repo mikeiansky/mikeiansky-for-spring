@@ -16,9 +16,13 @@ public class SpringAopBaseDemo {
     @Aspect
     public static class MyAspect {
 
+        public MyAspect() {
+            System.out.println("create MyAspect");
+        }
+
         @Pointcut("execution(public * *(..))")
         public void anyPublic(){
-
+            System.out.println("use any public");
         }
 
         @Before("anyPublic()")
@@ -45,16 +49,16 @@ public class SpringAopBaseDemo {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(MyAspect.class);
         context.register(One.class);
+        context.register(MyAspect.class);
         context.refresh();
 
         MyAspect myAspect = context.getBean(MyAspect.class);
         System.out.println(myAspect);
 
         One one = context.getBean(One.class);
-        System.out.println(one.getClass());
-        System.out.println(one);
+//        System.out.println(one.getClass());
+//        System.out.println(one);
         one.hello("test");
 
 
