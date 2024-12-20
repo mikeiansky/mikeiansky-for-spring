@@ -24,6 +24,7 @@
         <lombok.version>1.18.36</lombok.version>
         <spring.version>6.2.0</spring.version>
         <aspectj.version>1.9.20</aspectj.version>
+        <log.version>1.5.12</log.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
     </properties>
 
@@ -53,6 +54,11 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${log.version}</version>
             </dependency>
             <!-- 数据库驱动 -->
             <dependency>
