@@ -24,6 +24,7 @@
         <lombok.version>1.18.36</lombok.version>
         <spring.version>6.2.0</spring.version>
         <aspectj.version>1.9.20</aspectj.version>
+        <mysql-connector.version>8.0.32</mysql-connector.version>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +53,17 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
+            </dependency>
+            <!-- 数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

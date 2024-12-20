@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2024/12/20
  * @desc
  **/
-public class TransactionSampleApp {
+public class TransactionSampleDemo {
 
     @EnableTransactionManagement
     public static class One {
