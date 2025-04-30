@@ -28,12 +28,13 @@ public class AutowireWithBeanFactoryDemo {
     public static void main(String[] args) {
         // 测试后无效，可能需要用context 进行测试
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+
         AnnotatedGenericBeanDefinition oneBeanDefinition = new AnnotatedGenericBeanDefinition(One.class);
 //        oneBeanDefinition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
-        factory.registerBeanDefinition("one", oneBeanDefinition);
+        factory.registerBeanDefinition("one-001", oneBeanDefinition);
 
         AnnotatedGenericBeanDefinition twoBeanDefinition = new AnnotatedGenericBeanDefinition(Two.class);
-        factory.registerBeanDefinition("two", twoBeanDefinition);
+        factory.registerBeanDefinition("two-002", twoBeanDefinition);
 
         // 添加处理器
         AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();

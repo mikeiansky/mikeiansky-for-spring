@@ -36,11 +36,12 @@ public class ObjectProviderInjectDemo {
         autowiredAnnotationBeanPostProcessor.setBeanFactory(beanFactory);
         beanFactory.addBeanPostProcessor(autowiredAnnotationBeanPostProcessor);
 
-        One one = beanFactory.getBean(One.class);
-        System.out.println("one : " + one);
         Two two = beanFactory.getBean(Two.class);
         System.out.println("two : " + two);
+        One one = beanFactory.getBean(One.class);
+        System.out.println("one : " + one);
         System.out.println("two.oneObjectProvider : " + two.oneObjectProvider);
+        two.oneObjectProvider.getObject();
         System.out.println("two.oneObjectProvider.getObject()_1 : " + two.oneObjectProvider.getObject());
         System.out.println("two.oneObjectProvider.getObject()_2 : " + two.oneObjectProvider.getObject());
 

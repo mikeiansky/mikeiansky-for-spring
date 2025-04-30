@@ -2,8 +2,11 @@ package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.annotation.AnnotatedGenericBeanDefinition;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * @author mike ian
@@ -13,6 +16,9 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 public class CircleReferenceEarlySingletonObjectDemo {
 
     public static class One {
+
+//        @Lazy
+        @Autowired
         private Two two;
 
         public void setTwo(Two two) {
@@ -25,6 +31,9 @@ public class CircleReferenceEarlySingletonObjectDemo {
     }
 
     public static class Two {
+
+//        @Lazy
+        @Autowired
         private One one;
 
         public void setOne(One one) {
@@ -42,19 +51,23 @@ public class CircleReferenceEarlySingletonObjectDemo {
     public static void main(String[] args) {
 
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
+        autowiredAnnotationBeanPostProcessor.setBeanFactory(factory);
+        factory.addBeanPostProcessor(autowiredAnnotationBeanPostProcessor);
+
 
         AnnotatedGenericBeanDefinition oneBeanDefinition = new AnnotatedGenericBeanDefinition(One.class);
         AnnotatedGenericBeanDefinition twoBeanDefinition = new AnnotatedGenericBeanDefinition(Two.class);
 
-        MutablePropertyValues onePropertyValues = new MutablePropertyValues();
-        RuntimeBeanReference twoBeanReference = new RuntimeBeanReference("two");
-        onePropertyValues.addPropertyValue("two", twoBeanReference);
-        oneBeanDefinition.setPropertyValues(onePropertyValues);
-
-        MutablePropertyValues twoPropertyValues = new MutablePropertyValues();
-        RuntimeBeanReference oneBeanReference = new RuntimeBeanReference("one");
-        twoPropertyValues.addPropertyValue("one", oneBeanReference);
-        twoBeanDefinition.setPropertyValues(twoPropertyValues);
+//        MutablePropertyValues onePropertyValues = new MutablePropertyValues();
+//        RuntimeBeanReference twoBeanReference = new RuntimeBeanReference("two");
+//        onePropertyValues.addPropertyValue("two", twoBeanReference);
+//        oneBeanDefinition.setPropertyValues(onePropertyValues);
+//
+//        MutablePropertyValues twoPropertyValues = new MutablePropertyValues();
+//        RuntimeBeanReference oneBeanReference = new RuntimeBeanReference("one");
+//        twoPropertyValues.addPropertyValue("one", oneBeanReference);
+//        twoBeanDefinition.setPropertyValues(twoPropertyValues);
 
         factory.registerBeanDefinition("one", oneBeanDefinition);
         factory.registerBeanDefinition("two", twoBeanDefinition);
