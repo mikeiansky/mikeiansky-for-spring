@@ -34,8 +34,9 @@ public class ObjectFactoryDemo {
 
         OneObjectFactory objectFactory = beanFactory.getBean(OneObjectFactory.class);
         System.out.println("objectFactory :: " + objectFactory);
-        One oneBean = beanFactory.getBean(One.class);
-        System.out.println("oneBean :: " + oneBean);
+        System.out.println("One :: " + objectFactory.getObject());
+//        One oneBean = beanFactory.getBean(One.class);
+//        System.out.println("oneBean :: " + oneBean);
 
     }
 
