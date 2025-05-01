@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostP
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver;
 import org.springframework.context.annotation.Lazy;
 
 /**
@@ -15,10 +16,10 @@ public class ConstructSelfInjectDemo {
 
     public static class One {
 
-        @Lazy
+//        @Lazy
         private One parent;
 
-        public One( One parent) {
+        public One(@Lazy One parent) {
             this.parent = parent;
         }
 
@@ -30,15 +31,17 @@ public class ConstructSelfInjectDemo {
 
     public static void main(String[] args) {
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        factory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver());
         factory.registerBeanDefinition("one", new RootBeanDefinition(One.class));
 
         AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
-//        autowiredAnnotationBeanPostProcessor.setBeanFactory(factory);
+        autowiredAnnotationBeanPostProcessor.setBeanFactory(factory);
         factory.addBeanPostProcessor(autowiredAnnotationBeanPostProcessor);
 
         One one = factory.getBean(One.class);
         System.out.println("one bean : " + one);
         System.out.println("one bean parent : " + one.getParent());
+        System.out.println("one bean parent clazz : " + one.getParent().getClass());
 
     }
 
