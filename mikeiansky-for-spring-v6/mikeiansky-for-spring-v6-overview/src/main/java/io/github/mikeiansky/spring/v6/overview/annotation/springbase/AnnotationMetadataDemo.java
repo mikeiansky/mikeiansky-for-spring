@@ -29,7 +29,9 @@ public class AnnotationMetadataDemo {
     public static void main(String[] args) {
 
         AnnotationMetadata annotationMetadata = new StandardAnnotationMetadata(One.class);
-        annotationMetadata.hasAnnotation("flag-01");
+        System.out.println(annotationMetadata.getAnnotations().get(AnnotationFlag_01.class).getValue("hello"));
+        System.out.println(annotationMetadata.hasAnnotation("flag-01"));
+        System.out.println(annotationMetadata.hasAnnotation(AnnotationFlag_01.class.getName()));
         annotationMetadata.getAnnotations();
 
     }
