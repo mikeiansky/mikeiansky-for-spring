@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  **/
 public class BaseAnnoDemo {
 
-//    @Inherited
+    //    @Inherited
     @Target({ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     public @interface God {
@@ -28,7 +28,7 @@ public class BaseAnnoDemo {
     @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     public @interface AnnoInherited {
-
+        String value() default "";
     }
 
     @AnnoFather
@@ -45,7 +45,7 @@ public class BaseAnnoDemo {
         String value() default "";
     }
 
-//    @Inherited
+    //    @Inherited
     @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     public @interface AnnoSon2Repeatable {
@@ -53,7 +53,7 @@ public class BaseAnnoDemo {
     }
 
     @God
-    @AnnoInherited
+    @AnnoInherited("on one")
     @AnnoSon
 //    @AnnoSon
     @AnnoSon2("one-001")
@@ -62,8 +62,9 @@ public class BaseAnnoDemo {
 
     }
 
-//    @God
+    //    @God
 //    @AnnoInherited
+//    @AnnoInherited("on two")
     public static class Two extends One {
 
     }
