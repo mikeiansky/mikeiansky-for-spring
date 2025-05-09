@@ -12,6 +12,7 @@ public class ContextEnvDemo {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(ContextEnvDemo.class);
         context.refresh();
 
         System.out.println("==== active profiles ====");
@@ -26,6 +27,9 @@ public class ContextEnvDemo {
 
         System.out.println("==== other ====");
         System.out.println(context.getEnvironment().getProperty("TMP"));
+
+        String resolveResult = context.getEnvironment().resolvePlaceholders("${TMP}");
+        System.out.println(resolveResult);
     }
 
 }
