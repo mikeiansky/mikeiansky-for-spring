@@ -10,7 +10,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
  * @date 2024/12/12
  * @desc
  **/
-public class ObjectFactoryDemo {
+public class ObjectFactoryBeanDemo {
 
     public static class One {
 

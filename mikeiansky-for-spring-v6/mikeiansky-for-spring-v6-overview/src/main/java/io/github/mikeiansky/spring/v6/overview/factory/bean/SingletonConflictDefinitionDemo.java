@@ -11,13 +11,14 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 public class SingletonConflictDefinitionDemo {
 
     public static void main(String[] args) {
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+
+
         SingletonConflictDefinitionDemo demo = new SingletonConflictDefinitionDemo();
-        System.out.println("demo1 is : " + demo);
+        factory.registerSingleton("demo1", demo);
 
         RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(SingletonConflictDefinitionDemo.class);
 //        rootBeanDefinition.setPrimary(true);
-        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-        factory.registerSingleton("demo1", demo);
         factory.registerBeanDefinition("demo2", rootBeanDefinition);
 
         SingletonConflictDefinitionDemo bean = factory.getBean(SingletonConflictDefinitionDemo.class);

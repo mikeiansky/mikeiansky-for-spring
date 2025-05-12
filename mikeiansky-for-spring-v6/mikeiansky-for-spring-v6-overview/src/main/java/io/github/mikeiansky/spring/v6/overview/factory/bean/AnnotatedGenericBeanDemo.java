@@ -9,7 +9,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
  * @date 2025/5/1
  * @desc
  **/
-public class AnnotatedGenericBeanBeanFactoryDemo {
+public class AnnotatedGenericBeanDemo {
 
     public static class One {
 
@@ -17,10 +17,8 @@ public class AnnotatedGenericBeanBeanFactoryDemo {
 
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        RootBeanDefinition oneRootBeanDefinition = new RootBeanDefinition(One.class);
         AnnotatedGenericBeanDefinition oneBeanDefinition = new AnnotatedGenericBeanDefinition(One.class);
         beanFactory.registerBeanDefinition("one", oneBeanDefinition);
-//        beanFactory.registerAlias("one", "one");
         One one = beanFactory.getBean(One.class);
         System.out.println("one bean : " + one);
     }

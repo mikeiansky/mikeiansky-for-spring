@@ -8,7 +8,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
  * @date 2025/5/1
  * @desc
  **/
-public class RootBeanBeanFactoryDemo {
+public class RootBeanBeanDemo {
 
     public static class One {
 
