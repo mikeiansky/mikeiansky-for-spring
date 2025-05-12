@@ -3,6 +3,7 @@ package io.github.mikeiansky.spring.v6.overview.factory.dependency.injection;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.context.annotation.ContextAnnotationAutowireCandidateResolver;
 import org.springframework.context.annotation.Lazy;
 
 /**
@@ -26,7 +27,7 @@ public class CircleReferenceLazyBeanDemo {
 
         private One one;
 
-        public Two( One one) {
+        public Two(@Lazy One one) {
             this.one = one;
         }
 
@@ -35,6 +36,9 @@ public class CircleReferenceLazyBeanDemo {
     public static void main(String[] args) {
 
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        // 如果不加这个会报错
+//        beanFactory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver());
+
         AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
         autowiredAnnotationBeanPostProcessor.setBeanFactory(beanFactory);
         beanFactory.addBeanPostProcessor(autowiredAnnotationBeanPostProcessor);

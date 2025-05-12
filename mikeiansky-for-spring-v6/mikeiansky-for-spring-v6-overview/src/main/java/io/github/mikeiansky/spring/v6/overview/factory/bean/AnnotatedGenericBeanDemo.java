@@ -21,5 +21,8 @@ public class AnnotatedGenericBeanDemo {
         beanFactory.registerBeanDefinition("one", oneBeanDefinition);
         One one = beanFactory.getBean(One.class);
         System.out.println("one bean : " + one);
+
+        Object one2 = beanFactory.getBean("one");
+        System.out.println("one2 bean : " + one2);
     }
 }
