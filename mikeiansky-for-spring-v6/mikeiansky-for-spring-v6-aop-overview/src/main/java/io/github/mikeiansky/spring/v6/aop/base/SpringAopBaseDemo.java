@@ -41,6 +41,7 @@ public class SpringAopBaseDemo {
 
         public String hello(String msg) {
             System.out.println("one say hello msg");
+            System.out.println("good");
             return "one msg : " + msg;
         }
 
