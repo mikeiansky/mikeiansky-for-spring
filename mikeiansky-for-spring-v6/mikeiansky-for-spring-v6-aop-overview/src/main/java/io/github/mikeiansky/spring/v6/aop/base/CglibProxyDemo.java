@@ -14,14 +14,16 @@ public class CglibProxyDemo {
 
     public static class One {
         public void hello(){
-            System.out.println("one say hello");
+            System.out.println("one say hello : " + this);
         }
         public void good(){
-            System.out.println("one say good");
+            System.out.println("one say good : " + this);
         }
     }
 
     public static void main(String[] args) {
+        One realOne = new One();
+//        System.out.println("realOne : " + realOne);
         AtomicInteger count = new AtomicInteger(0);
         Enhancer enhancer = new Enhancer();
         enhancer.setClassLoader(One.class.getClassLoader());
@@ -43,7 +45,10 @@ public class CglibProxyDemo {
                     @Override
                     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
                         System.out.println("method interceptor 01 invoke method : " + method.getName());
-                        return proxy.invokeSuper(obj, args);
+//                        realOne.good();
+                        return method.invoke(realOne, args);
+//                        return proxy.invokeSuper(obj, args);
+//                        return null;
                     }
                 },
                 new MethodInterceptor() {
@@ -65,9 +70,9 @@ public class CglibProxyDemo {
         });
         One one = (One) enhancer.create();
 //        System.out.println("one : " + one);
-        System.out.println(one.getClass());
-        System.out.println(one.getClass().getClassLoader());
-        one.hello();
+//        System.out.println(one.getClass());
+//        System.out.println(one.getClass().getClassLoader());
+//        one.hello();
         one.good();
 
     }
