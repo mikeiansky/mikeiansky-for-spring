@@ -66,8 +66,8 @@ public class TransactionSampleDemo {
         @Override
         public TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException {
             System.out.println("getTransaction : " + definition);
-//            return new SimpleTransactionStatus();
-            return null;
+            return new SimpleTransactionStatus();
+//            return null;
         }
 
         @Override
